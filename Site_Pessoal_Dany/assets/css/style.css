@@ -531,13 +531,7 @@ section {
   border-radius: 99px;
   background: linear-gradient(90deg, var(--accent), var(--accent-alt));
   width: 0%;
-  animation: fillBar 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes fillBar {
-  to {
-    width: var(--width, 0%);
-  }
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .skill-ctx {
@@ -561,7 +555,7 @@ section {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 28px;
+  padding: 0;
   transition: all var(--transition);
   cursor: pointer;
   text-decoration: none;
@@ -570,6 +564,41 @@ section {
   transform: translateY(24px);
   position: relative;
   overflow: hidden;
+}
+
+.project-card-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  border-radius: var(--radius) var(--radius) 0 0;
+  position: relative;
+}
+
+.project-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.project-card:hover .project-card-thumb img {
+  transform: scale(1.04);
+}
+
+.project-card-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  opacity: 0.6;
+}
+
+.project-card-body {
+  padding: 24px 28px 28px;
 }
 
 .project-card::before {
