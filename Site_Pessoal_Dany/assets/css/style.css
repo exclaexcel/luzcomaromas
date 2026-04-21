@@ -541,6 +541,34 @@ section {
   line-height: 1.5;
 }
 
+.soft-skills-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.soft-badge {
+  background: var(--accent-glow);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 99px;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.timeline-result {
+  display: inline-block;
+  background: var(--accent-glow);
+  color: var(--accent);
+  border-radius: 4px;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
 /* ---------- PROJETOS ------------------------------------- */
 #projetos-destaque { background: var(--bg-card); }
 
