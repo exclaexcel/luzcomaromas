@@ -100,7 +100,7 @@ function initSkillBars() {
         const fill = entry.target;
         const target = fill.dataset.width || '0%';
         // Small delay so the element is visible before animating
-        setTimeout(() => { fill.style.width = target; }, 200);
+        setTimeout(() => { fill.style.setProperty('--width', target); fill.style.width = target; }, 200);
         observer.unobserve(fill);
       }
     });
@@ -159,10 +159,50 @@ function initSmoothScroll() {
   });
 }
 
+/* ---------- BACK TO TOP ----------------------------------- */
+function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ---------- NAVBAR SCROLL DETECTION ----------------------- */
+function initNavActiveScroll() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
+  if (!navLinks.length || !sections.length) return;
+
+  window.addEventListener('scroll', () => {
+    let currentSection = '';
+
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 200) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-section') === currentSection) {
+        link.classList.add('active');
+      }
+    });
+  });
+}
+
 /* ---------- BOOT ------------------------------------------ */
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initNav();
+  initNavActiveScroll();
+  initBackToTop();
   initHeroAnimation();
   initScrollAnimations();
   initSkillBars();
