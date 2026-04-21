@@ -300,21 +300,27 @@ const PROJECTS = {
   // Gallery
   const galleryEl = document.getElementById('project-gallery');
   if (proj.images && proj.images.length) {
-    const grid = document.createElement('div');
-    grid.className = 'project-gallery';
+    const gallery = document.createElement('div');
+    gallery.className = 'project-gallery';
+
+    const thumbsRow = proj.images.length > 1 ? document.createElement('div') : null;
+    if (thumbsRow) thumbsRow.className = 'project-gallery-thumbs';
+
     proj.images.forEach((src, i) => {
       const item = document.createElement('div');
-      item.className = 'project-gallery-item';
-      item.dataset.index = i;
+      item.className = 'project-gallery-item ' + (i === 0 ? 'featured' : 'thumb');
       const img = document.createElement('img');
       img.src = BASE_IMG + src;
       img.alt = proj.title + ' — imagem ' + (i + 1);
-      img.loading = 'lazy';
+      img.loading = i === 0 ? 'eager' : 'lazy';
       item.appendChild(img);
       item.addEventListener('click', () => openLightbox(proj.images, i));
-      grid.appendChild(item);
+      if (i === 0) gallery.appendChild(item);
+      else thumbsRow.appendChild(item);
     });
-    galleryEl.appendChild(grid);
+
+    if (thumbsRow) gallery.appendChild(thumbsRow);
+    galleryEl.appendChild(gallery);
   }
 
   // Tags
