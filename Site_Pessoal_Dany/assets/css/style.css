@@ -690,6 +690,21 @@ section {
   background: rgba(251,191,36,0.07);
 }
 
+.card-ctx-tag.excla {
+  color: #0F3E26;
+  border-color: #0F3E26;
+  background: rgba(15, 62, 38, 0.08);
+}
+
+[data-theme="dark"] .card-ctx-tag.excla {
+  color: #5db885;
+  border-color: rgba(93, 184, 133, 0.4);
+  background: rgba(15, 62, 38, 0.25);
+}
+
+:root      { --excla: #0F3E26; --lca-color: #9b7097; }
+[data-theme="dark"] { --excla: #5db885; --lca-color: #C9A9C5; }
+
 [data-theme="dark"] .card-ctx-tag.anonimizado {
   color: #38bdf8;
   border-color: rgba(56,189,248,0.3);
