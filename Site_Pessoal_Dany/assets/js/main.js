@@ -159,6 +159,20 @@ function initSmoothScroll() {
   });
 }
 
+/* ---------- BACK TO TOP ----------------------------------- */
+function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
 /* ---------- NAVBAR SCROLL DETECTION ----------------------- */
 function initNavActiveScroll() {
   const navLinks = document.querySelectorAll('.nav-link');
@@ -188,6 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initNav();
   initNavActiveScroll();
+  initBackToTop();
   initHeroAnimation();
   initScrollAnimations();
   initSkillBars();
