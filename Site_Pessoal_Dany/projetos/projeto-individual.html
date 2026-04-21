@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto — Daniely Cristiny Pinheiro</title>
+  <meta name="description" content="Detalhe de projeto do portfólio de Daniely Cristiny Pinheiro." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">Daniely<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#jornada">Jornada</a></li>
+        <li><a href="../index.html#habilidades">Habilidades</a></li>
+        <li><a href="index.html" style="color:var(--accent)">Projetos</a></li>
+        <li><a href="../index.html#curriculos">Currículos</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" aria-label="Alternar tema">🌙</button>
+        <button id="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <nav id="nav-mobile" class="nav-mobile">
+    <a href="../index.html#jornada">Jornada</a>
+    <a href="../index.html#habilidades">Habilidades</a>
+    <a href="index.html">Projetos</a>
+    <a href="../index.html#curriculos">Currículos</a>
+    <a href="../index.html#contato">Contato</a>
+  </nav>
+</nav>
+
+<!-- PROJECT DETAIL (populated by JS) -->
+<div class="project-detail-hero">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Início</a>
+      <span>›</span>
+      <a href="index.html">Projetos</a>
+      <span>›</span>
+      <span id="project-breadcrumb">Carregando...</span>
+    </nav>
+
+    <span class="section-label" id="project-type-label">Projeto</span>
+    <h1 class="project-detail-title" id="project-title">Carregando...</h1>
+
+    <div class="project-detail-meta" id="project-meta"></div>
+
+    <p id="project-context-note" class="project-context-note" style="display:none">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <span id="project-context-note-text"></span>
+    </p>
+
+  </div>
+</div>
+
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="project-body">
+
+      <!-- Main content -->
+      <div class="project-main" id="project-main">
+
+        <div class="mock-image" id="project-mock" aria-hidden="true">📊</div>
+
+        <div class="project-section">
+          <h3>Contexto</h3>
+          <p id="project-context">Carregando...</p>
+        </div>
+
+        <div class="project-section">
+          <h3>Problema</h3>
+          <p id="project-problem">Carregando...</p>
+        </div>
+
+        <div class="project-section">
+          <h3>Solução</h3>
+          <div id="project-solution">Carregando...</div>
+        </div>
+
+        <div class="project-section" id="confidential-section" style="display:none">
+          <div class="confidential-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <span id="confidential-text">Informações adicionais omitidas por confidencialidade.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="project-sidebar">
+
+        <div class="sidebar-card">
+          <h4>Ferramentas</h4>
+          <div class="tools-list" id="project-tools"></div>
+        </div>
+
+        <div class="sidebar-card">
+          <h4>Resultado</h4>
+          <div id="project-results"></div>
+        </div>
+
+        <div style="margin-top: 8px;">
+          <a href="index.html" class="btn-outline" style="width:100%; justify-content:center;">
+            ← Ver todos os projetos
+          </a>
+        </div>
+
+        <div class="other-projects" id="other-projects" style="display:none">
+          <h4>Outros projetos</h4>
+          <div class="other-projects-list" id="other-projects-list"></div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Daniely Cristiny Pinheiro · <a href="../index.html">Início</a></p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script>
+/* ================================================================
+   PROJETOS — edite aqui para atualizar conteúdo
+   Campos: type, title, tags, emoji, context, problem,
+           solutionList[], resultsList[], tools[],
+           confidential, confidentialText, context_note
+   ================================================================ */
+const PROJECTS = {
+  'gestao-clinica': {
+    type: 'Excel · Access · BI',
+    title: 'Sistema Integrado de Gestão Clínica',
+    tags: ['Excel', 'VBA', 'Access', 'Power Query'],
+    emoji: '🏥',
+    context: 'Projeto desenvolvido por meio da Exclã Soluções, no setor de saúde (cliente confidencial).',
+    problem: 'Informações descentralizadas e rotinas operacionais com baixa rastreabilidade dificultavam o controle e a tomada de decisão.',
+    solutionList: [
+      'Arquitetura híbrida usando Excel (VBA) e Microsoft Access como base transacional.',
+      'Tratamento de dados via Power Query e modelagem analítica no Power Pivot.',
+      'Construção de dashboards interativos para visão operacional e analítica por períodos.',
+    ],
+    resultsList: [
+      'Visão mais integrada da operação, com análises comparativas por período e indicadores para apoiar controle e gestão.',
+      'Maior rastreabilidade e consistência do fluxo de dados e dos indicadores.',
+    ],
+    tools: ['Excel 365', 'VBA', 'Microsoft Access', 'Power Query', 'Power Pivot'],
+    confidential: true,
+    confidentialText: 'Detalhes sensíveis omitidos (cliente e dados operacionais).',
+    context_note: 'Projeto desenvolvido no contexto da Exclã Soluções.',
+  },
+
+  'cobranca-credito': {
+    type: 'Excel · Indicadores',
+    title: 'Indicadores de Cobrança e Recuperação de Crédito',
+    tags: ['Excel', 'Indicadores', 'Cobrança'],
+    emoji: '📊',
+    context: 'Projeto desenvolvido em ambiente de trabalho CLT, com dados e recortes anonimizados para atender confidencialidade e LGPD.',
+    problem: 'Ausência de visibilidade clara sobre a efetividade das ações de cobrança e falta de controle estruturado do ciclo de comunicação e recuperação.',
+    solutionList: [
+      'Modelagem e estruturação de base de acompanhamento do ciclo de cobrança (envio, retorno, status e ações).',
+      'Criação de indicadores de inadimplência, taxa de entrega, retorno e recuperação de crédito.',
+      'Consolidação operacional por faixas de valor, status e etapas do processo para gestão e priorização.',
+    ],
+    resultsList: [
+      'Monitoramento de ~R$ 20,1 milhões em inadimplência.',
+      '~1.760 comunicações enviadas e ~79% de taxa de entrega.',
+      '~R$ 2,5 milhões recuperados (visão consolidada do processo e melhor previsibilidade).',
+    ],
+    tools: ['Excel', 'Análise de dados', 'Indicadores de performance'],
+    confidential: true,
+    confidentialText: 'Dados anonimizados e prints recortados para evitar exposição de informações pessoais/sensíveis.',
+    context_note: 'Ambiente CLT — dados anonimizados (LGPD).',
+  },
+
+  'agenda-consultas': {
+    type: 'Excel · Automação',
+    title: 'Sistema de Agenda e Confirmação de Consultas (Excel)',
+    tags: ['Excel', 'Automação', 'Psicologia'],
+    emoji: '📅',
+    context: 'Projeto desenvolvido por meio da Exclã Soluções para uma consultoria de psicologia (contexto confidencial).',
+    problem: 'Dificuldade em organizar atendimentos e reduzir falhas no processo de confirmação de consultas.',
+    solutionList: [
+      'Criação de uma agenda interativa com calendário e controle por data e profissional.',
+      'Automação do processo de confirmação via WhatsApp, com envio conforme a data agendada.',
+      'Padronização do fluxo de confirmação para aumentar previsibilidade e reduzir ruídos no atendimento.',
+    ],
+    resultsList: [
+      'Melhoria da organização da agenda e padronização do processo de confirmação.',
+      'Maior previsibilidade dos atendimentos e redução de falhas operacionais no agendamento.',
+    ],
+    tools: ['Excel', 'Automação de processos'],
+    confidential: true,
+    confidentialText: 'Nenhuma informação de pacientes/clientes é exibida neste portfólio (prints recortados e dados omitidos).',
+    context_note: 'Projeto desenvolvido no contexto da Exclã Soluções — Consultoria de Psicologia (Confidencial).',
+  },
+
+  'dashboard-veterinario': {
+    type: 'Excel · Dashboard',
+    title: 'Dashboard Veterinário — Atendimento e Faturamento (Excel)',
+    tags: ['Excel', 'Dashboard', 'Projeto autoral'],
+    emoji: '🐾',
+    context: 'Projeto autoral com organização de base e camada de análises para dashboards.',
+    problem: 'Necessidade de visualizar desempenho por período, tipo de atendimento, profissional e forma de pagamento de maneira clara e segmentável.',
+    solutionList: [
+      'Estruturação de um pipeline de dados (Dados → Análises → Dash) para consolidar e visualizar indicadores.',
+      'Criação de painéis com KPIs e segmentações operacionais.',
+    ],
+    resultsList: [
+      'Maior visibilidade operacional e leitura rápida de faturamento e atendimentos por recortes relevantes.',
+    ],
+    tools: ['Excel', 'Análise de dados'],
+    confidential: false,
+    context_note: 'Projeto autoral — sem dados de cliente real expostos.',
+  },
+
+  'controle-aluguel': {
+    type: 'Excel · Finanças',
+    title: 'Controle Financeiro de Aluguel (Excel)',
+    tags: ['Excel', 'Finanças', 'Projeto autoral'],
+    emoji: '🏠',
+    context: 'Projeto autoral desenvolvido para controle financeiro de receitas e despesas relacionadas a aluguel, com estrutura padronizada.',
+    problem: 'Necessidade de manter registros consistentes e rastreáveis (pagamentos/recebimentos) e facilitar acompanhamento financeiro.',
+    solutionList: [
+      'Planilha estruturada com categorização de operações, registro de pagamentos e histórico organizado.',
+      'Base preparada para consolidações e evolução futura (análises e indicadores).',
+    ],
+    resultsList: [
+      'Organização financeira com histórico confiável e rastreabilidade das movimentações.',
+    ],
+    tools: ['Excel'],
+    confidential: false,
+    context_note: 'Projeto autoral — sem exposição de dados sensíveis no portfólio publicado.',
+  },
+};
+
+/* ---- Populate page from URL param ---- */
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  const proj = PROJECTS[id];
+
+  if (!proj) {
+    document.getElementById('project-title').textContent = 'Projeto não encontrado.';
+    return;
+  }
+
+  document.title = proj.title + ' — Daniely Cristiny Pinheiro';
+  document.getElementById('project-breadcrumb').textContent = proj.title;
+  document.getElementById('project-type-label').textContent = proj.type;
+  document.getElementById('project-title').textContent = proj.title;
+  document.getElementById('project-mock').textContent = proj.emoji;
+
+  // Tags
+  const meta = document.getElementById('project-meta');
+  proj.tags.forEach(tag => {
+    const span = document.createElement('span');
+    span.className = 'meta-tag';
+    span.textContent = tag;
+    meta.appendChild(span);
+  });
+
+  // Texto simples
+  document.getElementById('project-context').textContent = proj.context.trim();
+  document.getElementById('project-problem').textContent = proj.problem.trim();
+
+  // Solução como lista
+  const solEl = document.getElementById('project-solution');
+  if (proj.solutionList && proj.solutionList.length) {
+    const ul = document.createElement('ul');
+    ul.className = 'solution-list';
+    proj.solutionList.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+    solEl.innerHTML = '';
+    solEl.appendChild(ul);
+  } else {
+    solEl.textContent = (proj.solution || '').trim();
+  }
+
+  // Context note
+  if (proj.context_note) {
+    document.getElementById('project-context-note').style.display = '';
+    document.getElementById('project-context-note-text').textContent = proj.context_note;
+  }
+
+  // Confidencial
+  if (proj.confidential) {
+    document.getElementById('confidential-section').style.display = '';
+    if (proj.confidentialText)
+      document.getElementById('confidential-text').textContent = proj.confidentialText;
+  }
+
+  // Ferramentas
+  const toolsEl = document.getElementById('project-tools');
+  proj.tools.forEach(t => {
+    const span = document.createElement('span');
+    span.className = 'tool-tag';
+    span.textContent = t;
+    toolsEl.appendChild(span);
+  });
+
+  // Resultados como lista
+  const resultsEl = document.getElementById('project-results');
+  if (proj.resultsList && proj.resultsList.length) {
+    const ul = document.createElement('ul');
+    ul.className = 'results-list';
+    proj.resultsList.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+    resultsEl.appendChild(ul);
+  }
+
+  // Outros projetos (2-3 links, excluindo o atual)
+  const otherIds = Object.keys(PROJECTS).filter(k => k !== id).slice(0, 3);
+  if (otherIds.length) {
+    document.getElementById('other-projects').style.display = '';
+    const listEl = document.getElementById('other-projects-list');
+    otherIds.forEach(oid => {
+      const op = PROJECTS[oid];
+      const a = document.createElement('a');
+      a.href = 'projeto-individual.html?id=' + oid;
+      a.className = 'other-project-link';
+      a.innerHTML = `<span style="font-size:1.1rem" aria-hidden="true">${op.emoji}</span> ${op.title}`;
+      listEl.appendChild(a);
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+📌 Portfólio — Versão Revisada e Padronizada (5 projetos)
+🧩 1) Sistema Integrado de Gestão Clínica
+🔹 Versão CURTA (Home)
+Sistema Integrado de Gestão Clínica
+Solução modular em Excel e Access com Power Query e Power Pivot para centralizar faturamento, auditoria, estoque e indicadores, oferecendo visão analítica completa da operação.
+Contexto: Exclã Soluções · Saúde (Confidencial) 
+🔸 Versão EXPANDIDA (Página do projeto)
+Contexto
+Projeto desenvolvido por meio da Exclã Soluções, no setor de saúde (cliente confidencial). 
+Problema
+Informações descentralizadas e rotinas operacionais com baixa rastreabilidade dificultavam o controle e a tomada de decisão. 
+Solução
+
+Arquitetura híbrida usando Excel (VBA) e Microsoft Access como base transacional. 
+Tratamento de dados via Power Query e modelagem analítica no Power Pivot. 
+Construção de dashboards interativos para visão operacional e analítica por períodos. 
+
+Resultado
+
+Visão mais integrada da operação, com análises comparativas por período e indicadores para apoiar controle e gestão. 
+Maior rastreabilidade e consistência do fluxo de dados e dos indicadores. 
+
+Tecnologias
+Excel 365, VBA, Microsoft Access, Power Query, Power Pivot. 
+Confidencialidade
+Detalhes sensíveis omitidos (cliente e dados operacionais). 
+
+🧩 2) Indicadores de Cobrança e Recuperação de Crédito
+🔹 Versão CURTA (Home)
+Indicadores de Cobrança e Recuperação de Crédito
+Estruturação de indicadores para monitorar inadimplência, efetividade de cobrança e recuperação financeira, com visão do ciclo completo (envio → retorno → ações).
+Contexto: Ambiente CLT (Confidencial) · Dados anonimizados 
+🔸 Versão EXPANDIDA (Página do projeto)
+Contexto
+Projeto desenvolvido em ambiente de trabalho CLT, com dados e recortes anonimizados para atender confidencialidade e LGPD. 
+Problema
+Ausência de visibilidade clara sobre a efetividade das ações de cobrança e falta de controle estruturado do ciclo de comunicação e recuperação. 
+Solução
+
+Modelagem e estruturação de base de acompanhamento do ciclo de cobrança (envio, retorno, status e ações).
+Criação de indicadores de inadimplência, taxa de entrega, retorno e recuperação de crédito. 
+Consolidação operacional por faixas de valor, status e etapas do processo para gestão e priorização.
+
+Resultado (mantendo impacto sem “precisão falsa”)
+
+Monitoramento de ~R$ 20,1 milhões em inadimplência.
+~1.760 comunicações enviadas e ~79% de taxa de entrega.
+~R$ 2,5 milhões recuperados (visão consolidada do processo e melhor previsibilidade).
+
+Tecnologias
+Excel, análise de dados, indicadores de performance. 
+Confidencialidade
+Dados anonimizados e prints recortados para evitar exposição de informações pessoais/sensíveis. 
+
+🧩 3) Sistema de Agenda e Confirmação de Consultas (Excel)
+🔹 Versão CURTA (Home)
+Sistema de Agenda e Confirmação de Consultas (Excel)
+Agenda com calendário interativo e automação de confirmação via WhatsApp, melhorando organização e previsibilidade dos atendimentos.
+Contexto: Exclã Soluções · Consultoria de Psicologia (Confidencial) 
+🔸 Versão EXPANDIDA (Página do projeto)
+Contexto
+Projeto desenvolvido por meio da Exclã Soluções para uma consultoria de psicologia (contexto confidencial). 
+Problema
+Dificuldade em organizar atendimentos e reduzir falhas no processo de confirmação de consultas. 
+Solução
+
+Criação de uma agenda interativa com calendário e controle por data e profissional. 
+Automação do processo de confirmação via WhatsApp, com envio conforme a data agendada. 
+Padronização do fluxo de confirmação para aumentar previsibilidade e reduzir ruídos no atendimento. 
+
+Resultado
+
+Melhoria da organização da agenda e padronização do processo de confirmação. 
+Maior previsibilidade dos atendimentos e redução de falhas operacionais no agendamento. 
+
+Tecnologias
+Excel e automação de processos. 
+Confidencialidade
+Nenhuma informação de pacientes/clientes é exibida no portfólio (prints recortados e dados omitidos). 
+
+🧩 4) Dashboard Veterinário — Atendimento e Faturamento (Excel)
+🔹 Versão CURTA (Home)
+Dashboard Veterinário — Atendimento e Faturamento (Excel)
+Pipeline estruturado (Dados → Análises → Dashboards) com indicadores para análise de atendimentos, perfis e faturamento.
+Contexto: Projeto autoral , 
+🔸 Versão EXPANDIDA (Página do projeto)
+Contexto
+Projeto autoral com organização de base e camada de análises para dashboards. , 
+Problema
+Necessidade de visualizar desempenho por período, tipo de atendimento, profissional e forma de pagamento de maneira clara e segmentável. , 
+Solução
+
+Estruturação de um pipeline de dados (Dados → Análises → Dash) para consolidar e visualizar indicadores. , 
+Criação de painéis com KPIs e segmentações operacionais. 
+
+Resultado
+
+Maior visibilidade operacional e leitura rápida de faturamento e atendimentos por recortes relevantes. , 
+
+Tecnologias
+Excel e análise de dados. , 
+Confidencialidade
+Projeto autoral — sem dados de cliente real expostos. 
+
+🧩 5) Controle Financeiro de Aluguel (Excel)
+🔹 Versão CURTA (Home)
+Controle Financeiro de Aluguel (Excel)
+Solução autoral para organização e rastreabilidade de receitas e despesas, com base estruturada para histórico confiável e análises futuras.
+Contexto: Projeto autoral, 
+🔸 Versão EXPANDIDA (Página do projeto)
+Contexto
+Projeto autoral desenvolvido para controle financeiro de receitas e despesas relacionadas a aluguel, com estrutura padronizada., 
+Problema
+Necessidade de manter registros consistentes e rastreáveis (pagamentos/recebimentos) e facilitar acompanhamento financeiro., 
+Solução
+
+Planilha estruturada com categorização de operações, registro de pagamentos e histórico organizado., 
+Base preparada para consolidações e evolução futura (análises e indicadores)., 
+
+Resultado
+
+Organização financeira com histórico confiável e rastreabilidade das movimentações., 
+
+Tecnologias
+Excel., 
+Confidencialidade
+Projeto autoral — sem exposição de dados sensíveis no portfólio publicado
