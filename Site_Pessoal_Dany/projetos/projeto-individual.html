@@ -79,7 +79,7 @@
       <!-- Main content -->
       <div class="project-main" id="project-main">
 
-        <div class="mock-image" id="project-mock" aria-hidden="true">📊</div>
+        <div id="project-gallery"></div>
 
         <div class="project-section">
           <h3>Contexto</h3>
@@ -151,8 +151,12 @@
            solutionList[], resultsList[], tools[],
            confidential, confidentialText, context_note
    ================================================================ */
+const BASE_IMG = '../assets/images/';
 const PROJECTS = {
   'gestao-clinica': {
+    images: [
+      'Sistema Integrado de Gestão Clínica.jpg',
+    ],
     type: 'Excel · Access · BI',
     title: 'Sistema Integrado de Gestão Clínica',
     tags: ['Excel', 'VBA', 'Access', 'Power Query'],
@@ -175,6 +179,10 @@ const PROJECTS = {
   },
 
   'cobranca-credito': {
+    images: [
+      'Indicadores de Cobrança e Recuperação de Crédito (1).jpg',
+      'Indicadores de Cobrança e Recuperação de Crédito (2).jpg',
+    ],
     type: 'Excel · Indicadores',
     title: 'Indicadores de Cobrança e Recuperação de Crédito',
     tags: ['Excel', 'Indicadores', 'Cobrança'],
@@ -198,6 +206,11 @@ const PROJECTS = {
   },
 
   'agenda-consultas': {
+    images: [
+      'Sistema de Agenda e Confirmação de Consultas (1).jpg',
+      'Sistema de Agenda e Confirmação de Consultas (2).jpg',
+      'Sistema de Agenda e Confirmação de Consultas (3).jpg',
+    ],
     type: 'Excel · Automação',
     title: 'Sistema de Agenda e Confirmação de Consultas (Excel)',
     tags: ['Excel', 'Automação', 'Psicologia'],
@@ -220,6 +233,10 @@ const PROJECTS = {
   },
 
   'dashboard-veterinario': {
+    images: [
+      'Dashboard Veterinário1.jpg',
+      'Dashboard Veterinário2.jpg',
+    ],
     type: 'Excel · Dashboard',
     title: 'Dashboard Veterinário — Atendimento e Faturamento (Excel)',
     tags: ['Excel', 'Dashboard', 'Projeto autoral'],
@@ -239,6 +256,9 @@ const PROJECTS = {
   },
 
   'controle-aluguel': {
+    images: [
+      'Controle Financeiro de Aluguel.jpg',
+    ],
     type: 'Excel · Finanças',
     title: 'Controle Financeiro de Aluguel (Excel)',
     tags: ['Excel', 'Finanças', 'Projeto autoral'],
@@ -273,7 +293,26 @@ const PROJECTS = {
   document.getElementById('project-breadcrumb').textContent = proj.title;
   document.getElementById('project-type-label').textContent = proj.type;
   document.getElementById('project-title').textContent = proj.title;
-  document.getElementById('project-mock').textContent = proj.emoji;
+
+  // Gallery
+  const galleryEl = document.getElementById('project-gallery');
+  if (proj.images && proj.images.length) {
+    const grid = document.createElement('div');
+    grid.className = 'project-gallery';
+    proj.images.forEach((src, i) => {
+      const item = document.createElement('div');
+      item.className = 'project-gallery-item';
+      item.dataset.index = i;
+      const img = document.createElement('img');
+      img.src = BASE_IMG + src;
+      img.alt = proj.title + ' — imagem ' + (i + 1);
+      img.loading = 'lazy';
+      item.appendChild(img);
+      item.addEventListener('click', () => openLightbox(proj.images, i));
+      grid.appendChild(item);
+    });
+    galleryEl.appendChild(grid);
+  }
 
   // Tags
   const meta = document.getElementById('project-meta');
@@ -354,6 +393,52 @@ const PROJECTS = {
     });
   }
 })();
+
+/* ---- Lightbox ---- */
+let _lbImages = [], _lbIndex = 0;
+
+function openLightbox(images, index) {
+  _lbImages = images;
+  _lbIndex = index;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function lightboxNav(dir) {
+  _lbIndex = (_lbIndex + dir + _lbImages.length) % _lbImages.length;
+  renderLightbox();
+}
+
+function renderLightbox() {
+  document.getElementById('lb-img').src = BASE_IMG + _lbImages[_lbIndex];
+  document.getElementById('lb-counter').textContent =
+    (_lbIndex + 1) + ' / ' + _lbImages.length;
+  document.getElementById('lb-nav-prev').style.display = _lbImages.length > 1 ? '' : 'none';
+  document.getElementById('lb-nav-next').style.display = _lbImages.length > 1 ? '' : 'none';
+}
+
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft')  lightboxNav(-1);
+  if (e.key === 'ArrowRight') lightboxNav(1);
+});
 </script>
+
+<!-- Lightbox overlay -->
+<div id="lightbox" class="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fechar">✕</button>
+  <button class="lightbox-nav prev" id="lb-nav-prev" onclick="lightboxNav(-1)" aria-label="Anterior">‹</button>
+  <img id="lb-img" class="lightbox-img" src="" alt="Imagem do projeto" />
+  <button class="lightbox-nav next" id="lb-nav-next" onclick="lightboxNav(1)" aria-label="Próxima">›</button>
+  <span id="lb-counter" class="lightbox-counter"></span>
+</div>
 </body>
 </html>
