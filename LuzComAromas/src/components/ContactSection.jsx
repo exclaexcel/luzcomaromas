@@ -1,9 +1,6 @@
-﻿import { useState, useRef } from 'react'
-import emailjs from '@emailjs/browser'
+﻿import { useState } from 'react'
 
-const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY
 
 const COLECOES = ['Serenidade', 'Energia', 'Intuição', 'Purificação', 'Ainda não sei']
 
@@ -23,7 +20,6 @@ const inputStyle = {
 }
 
 export default function ContactSection() {
-  const formRef = useRef(null)
   const [status, setStatus] = useState('idle') // idle | sending | success | error
   const [form, setForm] = useState({ from_name: '', from_email: '', subject: '', message: '' })
 
@@ -33,9 +29,24 @@ export default function ContactSection() {
     e.preventDefault()
     setStatus('sending')
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
-      setStatus('success')
-      setForm({ from_name: '', from_email: '', subject: '', message: '' })
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          from_name: form.from_name,
+          from_email: form.from_email,
+          subject: `[LuzComAromas] Interesse em: ${form.subject}`,
+          message: form.message,
+        }),
+      })
+      const data = await res.json()
+      if (data.success) {
+        setStatus('success')
+        setForm({ from_name: '', from_email: '', subject: '', message: '' })
+      } else {
+        setStatus('error')
+      }
     } catch {
       setStatus('error')
     }
@@ -125,7 +136,7 @@ export default function ContactSection() {
             </p>
           </div>
         ) : (
-          <form ref={formRef} onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
               <div>
                 <label style={{ display: 'block', fontFamily: "'Raleway', sans-serif", fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
