@@ -230,6 +230,7 @@ const FILTERS = [
 ]
 
 export default function Loja() {
+  const navigate = useNavigate()
   const [selectedCollection, setSelectedCollection] = useState('todas')
   const [cartOpen, setCartOpen] = useState(false)
 
@@ -244,6 +245,80 @@ export default function Loja() {
   return (
     <div style={{ paddingTop: '70px', backgroundColor: 'rgba(18, 8, 40, 0.95)', minHeight: '100vh' }}>
       {cartOpen && <CartModal onClose={() => setCartOpen(false)} />}
+
+      {/* Quiz Teaser */}
+      <section
+        style={{
+          padding: 'clamp(3rem, 7vw, 5rem) clamp(1.5rem, 5vw, 4rem)',
+          borderBottom: '1px solid var(--border-gold)',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: 'clamp(1.5rem, 3vw, 3rem)',
+            }}
+          >
+            <div>
+              <h3
+                style={{
+                  fontFamily: "'Raleway', sans-serif",
+                  fontSize: 'clamp(0.7rem, 2vw, 0.85rem)',
+                  letterSpacing: '0.3em',
+                  textTransform: 'uppercase',
+                  color: '#C9A84A',
+                  marginBottom: '0.5rem',
+                }}
+              >
+                Não sabe por onde começar?
+              </h3>
+              <p
+                style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
+                  fontStyle: 'italic',
+                  color: 'var(--text-secondary)',
+                  maxWidth: '400px',
+                }}
+              >
+                Descubra o ritual que acompanha o seu momento agora.
+              </p>
+            </div>
+            <button
+              onClick={() => navigate('/quiz')}
+              style={{
+                padding: 'clamp(0.75rem, 1.5vw, 0.9rem) clamp(1.5rem, 3vw, 2.5rem)',
+                background: 'transparent',
+                border: '1px solid #C9A84A',
+                color: '#C9A84A',
+                fontFamily: "'Raleway', sans-serif",
+                fontSize: 'clamp(0.75rem, 1.5vw, 0.85rem)',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                cursor: 'pointer',
+                borderRadius: '1px',
+                fontWeight: 600,
+                transition: 'all 0.3s ease',
+                whiteSpace: 'nowrap',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#C9A84A'
+                e.currentTarget.style.color = '#1E1035'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent'
+                e.currentTarget.style.color = '#C9A84A'
+              }}
+            >
+              Descobrir meu ritual
+            </button>
+          </div>
+        </div>
+      </section>
 
       <section style={{ padding: 'clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>

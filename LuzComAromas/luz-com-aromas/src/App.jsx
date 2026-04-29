@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Sobre from './pages/Sobre'
 import Colecoes from './pages/Colecoes'
 import Loja from './pages/Loja'
+import Quiz from './pages/Quiz'
 import Ritual from './pages/Ritual'
 import Produto from './pages/Produto'
 import Manual from './pages/Manual'
@@ -29,6 +30,7 @@ export default function App() {
                 <Route path="/sobre"         element={<Sobre />} />
                 <Route path="/colecoes"      element={<Colecoes />} />
                 <Route path="/loja"          element={<Loja />} />
+                <Route path="/quiz"          element={<Quiz />} />
                 <Route path="/ritual"        element={<Ritual />} />
                 <Route path="/produto/:id"   element={<Produto />} />
                 <Route path="/manual"        element={<Manual />} />
