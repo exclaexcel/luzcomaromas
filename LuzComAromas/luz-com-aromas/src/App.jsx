@@ -3,6 +3,7 @@ import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
 import ManualButton from './components/ManualButton'
+import ScrollToTop from './components/ScrollToTop'
 import CosmicBackground from './components/CosmicBackground'
 import Home from './pages/Home'
 import Sobre from './pages/Sobre'
@@ -39,6 +40,7 @@ export default function App() {
             <Footer />
             <WhatsAppButton />
             <ManualButton />
+            <ScrollToTop />
           </div>
         </BrowserRouter>
       </CartProvider>
