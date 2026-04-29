@@ -25,7 +25,7 @@ const inputStyle = {
 export default function ContactSection() {
   const formRef = useRef(null)
   const [status, setStatus] = useState('idle') // idle | sending | success | error
-  const [form, setForm] = useState({ name: '', email: '', colecao: '', message: '' })
+  const [form, setForm] = useState({ from_name: '', from_email: '', subject: '', message: '' })
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
@@ -35,7 +35,7 @@ export default function ContactSection() {
     try {
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       setStatus('success')
-      setForm({ name: '', email: '', colecao: '', message: '' })
+      setForm({ from_name: '', from_email: '', subject: '', message: '' })
     } catch {
       setStatus('error')
     }
@@ -133,8 +133,8 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="text"
-                  name="name"
-                  value={form.name}
+                  name="from_name"
+                  value={form.from_name}
                   onChange={handleChange}
                   required
                   placeholder="Seu nome"
@@ -149,8 +149,8 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="email"
-                  name="email"
-                  value={form.email}
+                  name="from_email"
+                  value={form.from_email}
                   onChange={handleChange}
                   required
                   placeholder="seu@email.com"
@@ -166,15 +166,15 @@ export default function ContactSection() {
                 Coleção de Interesse
               </label>
               <select
-                name="colecao"
-                value={form.colecao}
+                name="subject"
+                value={form.subject}
                 onChange={handleChange}
                 style={{
                   ...inputStyle,
                   background: 'transparent',
                   appearance: 'none',
                   cursor: 'pointer',
-                  color: form.colecao ? 'var(--text-primary)' : 'var(--text-faint)',
+                  color: form.subject ? 'var(--text-primary)' : 'var(--text-faint)',
                 }}
                 onFocus={e => e.currentTarget.style.borderBottomColor = '#C9A84A'}
                 onBlur={e => e.currentTarget.style.borderBottomColor = 'rgba(212, 184, 74, 0.4)'}
