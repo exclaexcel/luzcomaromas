@@ -41,6 +41,7 @@ export default function ContactSection() {
         }),
       })
       const data = await res.json()
+      console.log('[Web3Forms]', data)
       if (data.success) {
         setStatus('success')
         setForm({ from_name: '', from_email: '', subject: '', message: '' })
