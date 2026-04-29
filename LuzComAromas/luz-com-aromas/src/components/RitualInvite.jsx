@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 
 export default function RitualInvite() {
   const ref = useRef(null)
@@ -97,33 +96,6 @@ export default function RitualInvite() {
           o universo preparou para esse momento. Acesse com sua palavra de intenção.
         </p>
 
-        <Link
-          to="/ritual"
-          className="animate-pulse-golden"
-          style={{
-            textDecoration: 'none',
-            display: 'inline-block',
-            padding: '1rem 3rem',
-            border: '1px solid #C9A84A',
-            color: '#C9A84A',
-            fontFamily: "'Raleway', sans-serif",
-            fontSize: '0.78rem',
-            letterSpacing: '0.3em',
-            textTransform: 'uppercase',
-            borderRadius: '1px',
-            transition: 'all 0.35s ease',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.background = '#C9A84A'
-            e.currentTarget.style.color = '#1E1035'
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.background = 'transparent'
-            e.currentTarget.style.color = '#C9A84A'
-          }}
-        >
-          Entrar no Ritual
-        </Link>
       </div>
     </section>
   )
