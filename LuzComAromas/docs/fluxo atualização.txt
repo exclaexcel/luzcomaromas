@@ -1,0 +1,111 @@
+Tenho dois arquivos que precisam trabalhar juntos:
+`login.html` (já existe, código abaixo) e `portal-oraculo.html`.
+
+FLUXO COMPLETO:
+index.html → botão "Entrar no Ritual" → login.html → (senha correta) → portal-oraculo.html
+
+PARTE 1 – Atualizar login.html
+
+Mantenha o layout base, mas:
+
+1) Adicione validação real de senha. As senhas válidas são os nomes das coleções:
+   serenidade | energia | intuicao | purificacao
+   (sem acento em intuição e purificação, para facilitar digitação)
+
+2) Se senha correta:
+   - Salvar no sessionStorage: sessionStorage.setItem('colecao', senha)
+   - Redirecionar para portal-oraculo.html
+
+3) Se senha errada:
+   - Mostrar mensagem discreta e mística:
+     "Senha não reconhecida. Verifique a carta do seu ritual."
+   - Mensagem em prata, pequena, abaixo do botão.
+
+4) Transforme o visual do login.html no clima de oráculo:
+   - Fundo roxo profundo (crepúsculo), como a imagem de referência.
+   - No centro, um card de login com borda dourada fina.
+   - Título: "Acesso ao Ritual" em Cormorant Garamond.
+   - Subtítulo: "Digite a senha que está na sua carta."
+   - Campo de senha e botão com estilo místico (dourado/prata).
+   - Remova o texto "💡 Dica: Digite qualquer senha para acessar (demo)".
+
+PARTE 2 – Criar portal-oraculo.html
+
+Use a imagem de referência que estou enviando (mesa de oráculo e toalha mística,
+fundo roxo, vela, lua, quatro cartas coloridas em leque).
+
+Ao carregar a página:
+- Ler sessionStorage.getItem('colecao') para saber qual coleção o cliente comprou.
+- Se não tiver nada no sessionStorage, redirecionar para login.html.
+
+VISUAL DAS CARTAS (inspirado na imagem):
+- Mostrar as 4 cartas na mesa, em leque.
+- A carta da coleção ativa (comprada):
+  - visível, com nome, ícone e cores da coleção,
+  - com animação suave de "respiração" (leve scale pulsando, 4s, ease-in-out),
+  - borda dourada brilhando levemente.
+- As outras 3 cartas:
+  - viradas, misteriosas, sem nome visível,
+  - opacidade reduzida (0.4),
+  - fundo em roxo escuro com bordas prata,
+  - sem interação.
+
+ANIMAÇÃO DAS CARTAS (sutil, sem enjoo):
+- Carta ativa: leve "flutuação" (translateY -4px e volta, 4s loop).
+- Brilho dourado na borda da carta ativa pulsando muito devagar.
+- As cartas misteriosas: nenhuma animação, só ficam paradas.
+
+CARTA REVELADA (mensagem do oráculo):
+- Ao clicar na carta ativa, aparece no centro da mesa uma carta maior com:
+  - "Coleção [nome]" em prata pequeno,
+  - "Sua Chama de Sabedoria de hoje:" em Cormorant,
+  - mensagem sorteada do array da coleção, grande, centralizada,
+  - frase fixa: "Respire fundo, acenda sua intenção e deixe a luz guiar o seu momento.",
+  - botão "Puxar outra chama" com glow dourado suave.
+- Entrada com fade-in + leve translateY.
+
+MENSAGENS POR COLEÇÃO (arrays JS):
+
+serenidade: [
+  "Permite que o silêncio cure o que as palavras não alcançam.",
+  "A paz não é a ausência de tempestade, mas a calma no centro dela.",
+  "Respira. O universo flui no teu ritmo quando tu permites.",
+  "Solta o peso do ontem; hoje, a leveza é o teu guia.",
+  "Encontra o teu refúgio no agora e deixa a luz guiar o teu descanso."
+]
+
+energia: [
+  "A tua força interior é o combustível que acende o amanhã.",
+  "Desperta! O mundo espera pelo brilho que só tu podes dar.",
+  "Cada pequena ação é uma centelha que cria um grande incêndio de vida.",
+  "Sente o calor da tua coragem e transforma intenção em movimento.",
+  "A alegria é a luz que afasta qualquer sombra. Brilha intensamente."
+]
+
+intuicao: [
+  "Confie no sussurro da sua alma; ela conhece o caminho.",
+  "A verdade não se vê com os olhos, sente-se com o coração.",
+  "O mistério é apenas uma porta que espera pela sua chave interior.",
+  "Mergulhe no seu silêncio e as respostas emergirão como luz.",
+  "Você é o oráculo da sua própria vida. Escute a sua sabedoria."
+]
+
+purificacao: [
+  "Limpa o espaço, renove a mente, liberte o espírito.",
+  "Deixa que o aroma leve embora o que já não serve mais.",
+  "A renovação começa com a coragem de deixar ir.",
+  "Como a natureza, permite-te florescer após a limpeza da chuva.",
+  "Pureza é o estado natural de quem se permite recomeçar."
+]
+
+ESTILO GERAL:
+- Cormorant Garamond para títulos e mensagens.
+- Montserrat para textos auxiliares.
+- Fundo roxo profundo com gradiente animado lento.
+- Detalhes em dourado (#C7A15A) e prata (#C0C5CF).
+- Vela (🕯️) com animação de flicker no topo da mesa.
+- Lua e brilhinhos ao fundo, bem discretos.
+- Responsivo (mobile-first).
+- HTML + CSS + JS puro, tudo em um único arquivo.
+
+Entregue dois arquivos: login.html atualizado e portal-oraculo.html completo.

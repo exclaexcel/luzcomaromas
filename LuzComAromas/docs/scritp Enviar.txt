@@ -1,0 +1,440 @@
+
+/**
+ * ============================================
+ *  Botão "Enviar" — FORMULARIO -> TB_REGISTROS
+ * ============================================
+ *
+ * O que este script faz:
+ * 1) Lê os valores digitados no FORMULARIO (buscando cada rótulo e pegando a célula à direita).
+ * 2) Valida obrigatórios, normaliza tipos (datas/números).
+ * 3) Garante a existência da tabela TB_REGISTROS na BANCO_DE_DADOS e insere uma nova linha.
+ * 4) Protege novamente a aba do banco (desprotege -> grava -> protege).
+ * 5) Limpa o formulário (opcional) e mostra um banner de sucesso no topo.
+ * 6) (Opcional) Aplica listas suspensas para CLIENTE, MOTORISTA e CONT com base na aba LISTAS.
+ *
+ * Observações importantes:
+ * - Não renomeie as abas: "FORMULARIO" e "BANCO_DE_DADOS".
+ * - Não mude os textos dos rótulos (DATA, CLIENTE, ORIGEM, etc.), pois o script usa esses textos como "âncoras".
+ * - A função de proteção no Office Scripts não usa senha; usa sheet.getProtection().protect(options).
+ */
+
+function main(workbook: ExcelScript.Workbook) {
+  // ===== CONFIGURAÇÕES GERAIS =====
+  const SHEET_FORM = "FORMULARIO";
+  const SHEET_DB = "BANCO_DE_DADOS";
+  const SHEET_LISTS = "LISTAS"; // usado apenas se você quiser aplicar listas suspensas automaticamente
+  const TABLE_NAME = "TB_REGISTROS";
+  const CLEAR_FORM_AFTER_SEND = true; // true = limpa os campos após enviar
+
+  // Opções de proteção suportadas na API de Office Scripts
+  const PROTECT_OPTIONS: ExcelScript.WorksheetProtectionOptions = {
+    allowAutoFilter: true,
+    allowSort: false,
+    allowFormatCells: false,
+    allowFormatColumns: false,
+    allowFormatRows: false,
+    allowInsertColumns: false,
+    allowInsertRows: false,
+    allowDeleteColumns: false,
+    allowDeleteRows: false,
+    allowPivotTables: false
+  };
+
+  // Ordem/cabeçalhos (precisa bater com a tabela de destino)
+  const FIELD_ORDER: string[] = [
+    "DATA","CLIENTE","ORIGEM","DESTINO","MOTORISTA",
+    "FRETE_EMPRESA","FRETE_CONTRATADO","CONT","ADIANT",
+    "CTE","DESC","SALDO","OBSERVACAO","CONSULTA"
+  ];
+
+  // OBSERVACAO e CONSULTA são opcionais; o restante é obrigatório
+  const REQUIRED_FIELDS: string[] = FIELD_ORDER.filter((f) => !["OBSERVACAO","CONSULTA"].includes(f));
+
+  // Tipagem de colunas para normalização e formatação
+  const NUMERIC_FIELDS = new Set(["FRETE_EMPRESA","FRETE_CONTRATADO","ADIANT","SALDO"]);
+  const DATE_FIELDS = new Set(["DATA"]);
+
+  try {
+    // ===== 1) Obter planilhas =====
+    const formSheet: ExcelScript.Worksheet = ensureSheet(workbook, SHEET_FORM, true);
+    const dbSheet: ExcelScript.Worksheet = ensureSheet(workbook, SHEET_DB, false);
+
+    // Limpa qualquer banner antigo (sucesso/erro) no topo do formulário
+    clearBanner(formSheet);
+
+    // ===== 2) Garantir a tabela TB_REGISTROS com cabeçalhos corretos =====
+    let table: ExcelScript.Table | null = getTableByName(workbook, TABLE_NAME);
+    if (!table) {
+      // Escreve os cabeçalhos na A1...
+      dbSheet.getRangeByIndexes(0, 0, 1, FIELD_ORDER.length).setValues([FIELD_ORDER]);
+      // ...e cria a tabela em cima dos cabeçalhos
+      const endCol: string = toColLetter(FIELD_ORDER.length);
+      table = dbSheet.addTable(`A1:${endCol}1`, true);
+      table.setName(TABLE_NAME);
+    } else {
+      // Se a tabela existir mas os cabeçalhos divergirem, alinhe-os
+      const currentHeaders: string[] = table.getHeaderRowRange().getValues()[0].map((v) => String(v));
+      const needFix: boolean =
+        currentHeaders.length !== FIELD_ORDER.length ||
+        currentHeaders.some((h, i) => normalize(h) !== normalize(FIELD_ORDER[i]));
+      if (needFix) table.getHeaderRowRange().setValues([FIELD_ORDER]);
+    }
+
+    // ===== 3) Ler valores do FORMULARIO por rótulo =====
+    const usedForm: ExcelScript.Range | undefined = formSheet.getUsedRange(true);
+    if (!usedForm) throw new Error(`A planilha "${SHEET_FORM}" está vazia.`);
+
+    // Cache do conteúdo do formulário para performance
+    const vals: unknown[][] = usedForm.getValues();
+    const rows: number = vals.length;
+    const cols: number = rows > 0 ? (vals[0] as unknown[]).length : 0;
+
+    const labelToValue: Record<string, ExcelScript.Range> = {};
+    const collected: Record<string, unknown> = {};
+
+    for (const field of FIELD_ORDER) {
+      // Localiza o rótulo e retorna a célula à direita (onde está o valor)
+      const rng = findValueRangeRightOfLabelCached(usedForm, vals, rows, cols, field);
+      labelToValue[field] = rng;
+      collected[field] = rng.getValue();
+    }
+
+    // ===== 4) (Opcional) Aplicar listas suspensas a partir da aba LISTAS =====
+    // Descomente a linha abaixo caso queira reconfigurar os drop-downs a cada envio:
+    // applyDropdownsFromLists(workbook, SHEET_LISTS, usedForm, vals, rows, cols);
+
+    // ===== 5) Validações de obrigatórios =====
+    const missing: string[] = [];
+    for (const f of REQUIRED_FIELDS) if (isEmpty(collected[f])) missing.push(f);
+    if (missing.length) throw new Error("Preencha os campos obrigatórios:\n- " + missing.join("\n- "));
+
+    // ===== 6) Normalizações por tipo =====
+    for (const k of Object.keys(collected)) {
+      const raw = collected[k];
+      if (DATE_FIELDS.has(k)) {
+        // Transforma "dd/mm/aaaa" em Date (ou retorna serial/Date se já vier assim)
+        collected[k] = coerceToDate(raw);
+      } else if (NUMERIC_FIELDS.has(k)) {
+        // Converte "1.234,56" -> 1234.56
+        collected[k] = coerceToNumberPtBr(raw);
+      } else if (typeof raw === "string") {
+        // Texto: trimming
+        collected[k] = (raw as string).trim();
+      }
+    }
+
+    // ===== 7) Monta a linha para inserir (tabela aceita apenas string|number|boolean) =====
+    // Convertemos Date -> número serial Excel (e formatamos a coluna depois).
+    const newRow: (string | number | boolean)[] = FIELD_ORDER.map((h) => {
+      const v = collected[h];
+      if (v === null || v === undefined) return ""; // vazio
+      if (v instanceof Date) return dateToExcelSerial(v); // <-- converte Date em serial Excel
+      if (typeof v === "number" || typeof v === "string" || typeof v === "boolean") return v;
+      return String(v);
+    });
+
+    // ===== 8) Inserir com proteção (desprotege -> insere -> protege) =====
+    const prot = dbSheet.getProtection();
+    const wasProtected: boolean = prot.getProtected();
+    try {
+      if (wasProtected) prot.unprotect();      // desprotege temporariamente
+      table.addRow(-1, newRow);                // -1 = ao final da tabela
+    } finally {
+      dbSheet.getProtection().protect(PROTECT_OPTIONS); // protege novamente
+    }
+
+    // ===== 9) Formatar colunas (datas e moeda) =====
+    // Usa setNumberFormat com matriz 2D (o método Local não existe na API do Office Scripts)
+    applyFormats(table, FIELD_ORDER, DATE_FIELDS, NUMERIC_FIELDS);
+
+    // ===== 10) Limpar formulário (mantém validações e layout) =====
+    if (CLEAR_FORM_AFTER_SEND) {
+      for (const f of FIELD_ORDER) labelToValue[f].clear(ExcelScript.ClearApplyTo.contents);
+    }
+
+    // ===== 11) Banner de sucesso =====
+    showBanner(formSheet, "✔ Registro cadastrado com sucesso!", "#E8F5E9", "#1B5E20");
+  } catch (err: unknown) {
+    // Banner de erro amigável + erro no painel
+    const msg = extractMessage(err);
+    const fallbackForm = workbook.getWorksheet(SHEET_FORM) ?? workbook.getActiveWorksheet();
+    try { showBanner(fallbackForm, "❌ " + msg, "#FFEBEE", "#B71C1C"); } catch {}
+    console.log(msg);
+    throw err;
+  }
+}
+
+/* =======================================================================
+   HELPERS
+======================================================================= */
+
+/** Garante a existência/retorno de uma planilha, ou cria se permitido. */
+function ensureSheet(workbook: ExcelScript.Workbook, name: string, mustExist: boolean): ExcelScript.Worksheet {
+  const ws = workbook.getWorksheet(name);
+  if (ws) return ws;
+  if (mustExist) throw new Error(`A planilha "${name}" não foi encontrada.`);
+  return workbook.addWorksheet(name);
+}
+
+/** Retorna a tabela pelo nome, ou null se não existir. */
+function getTableByName(workbook: ExcelScript.Workbook, name: string): ExcelScript.Table | null {
+  const list = workbook.getTables();
+  for (const t of list) if (t.getName() === name) return t;
+  return null;
+}
+
+/** Normaliza texto para comparação (trim + lowercase). */
+function normalize(t: unknown): string {
+  return String(t ?? "").trim().toLowerCase();
+}
+
+/** Verifica se um valor está vazio (null/undefined/"" após trim). */
+function isEmpty(v: unknown): boolean {
+  return v === null || v === undefined || (typeof v === "string" && (v as string).trim() === "");
+}
+
+/** Extrai a mensagem de erro em string. */
+function extractMessage(err: unknown): string {
+  if (typeof err === "string") return err;
+  if (typeof err === "object" && err && "message" in err) return String((err as { message: unknown }).message);
+  return String(err);
+}
+
+/**
+ * Localiza um rótulo no FORMULARIO usando cache de getValues()
+ * e retorna a célula à direita do rótulo (onde o usuário preenche).
+ */
+function findValueRangeRightOfLabelCached(
+  usedRange: ExcelScript.Range,
+  vals: unknown[][],
+  rows: number,
+  cols: number,
+  label: string
+): ExcelScript.Range {
+  const target = normalize(label);
+  for (let r = 0; r < rows; r++) {
+    const rowVals = vals[r] as unknown[];
+    for (let c = 0; c < cols; c++) {
+      if (normalize(rowVals[c]) === target) {
+        if (c + 1 < cols) return usedRange.getCell(r, c + 1);
+        throw new Error(`O rótulo "${label}" não tem uma célula à direita para o valor.`);
+      }
+    }
+  }
+  throw new Error(`Não encontrei o rótulo "${label}" no formulário.`);
+}
+
+/** Converte "pt-BR" (com vírgula) para número JS. */
+function coerceToNumberPtBr(value: unknown): number {
+  if (typeof value === "number") return value;
+  let s = String(value ?? "").trim();
+  if (s === "") return 0;
+  s = s.replace(/[^\d.,-]/g, "");
+  if (s.includes(",") && s.includes(".")) { s = s.replace(/\./g, ""); s = s.replace(",", "."); }
+  else if (s.includes(",")) s = s.replace(",", ".");
+  const n = Number(s);
+  return isNaN(n) ? 0 : n;
+}
+
+/** Tenta transformar texto de data (dd/mm/aaaa) em Date; se não der, retorna string/serial. */
+function coerceToDate(value: unknown): unknown {
+  if (value instanceof Date) return value;
+  if (typeof value === "number") return value; // serial do Excel
+  const s = String(value ?? "").trim();
+  if (s === "") return s;
+
+  const m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
+  if (m) {
+    const d = parseInt(m[1], 10);
+    const mo = parseInt(m[2], 10) - 1;
+    let y = parseInt(m[3], 10);
+    if (y < 100) y += 2000;
+    const dt = new Date(y, mo, d);
+    if (!isNaN(dt.getTime())) return dt;
+  }
+
+  const dt2 = new Date(s);
+  if (!isNaN(dt2.getTime())) return dt2;
+  return s;
+}
+
+/** Converte Date para número serial do Excel (data sem horário). */
+function dateToExcelSerial(dt: Date): number {
+  // Epoch do Excel (ajustado): 1899-12-30
+  const excelEpoch = Date.UTC(1899, 11, 30);
+  const utc = Date.UTC(dt.getFullYear(), dt.getMonth(), dt.getDate());
+  return Math.floor((utc - excelEpoch) / 86400000); // 24h em ms
+}
+
+/**
+ * Aplica formatação às colunas da tabela:
+ * - DATA -> "dd/mm/yyyy"
+ * - valores -> "R$ #,##0.00"
+ *
+ * Observação: no Office Scripts, usamos setNumberFormat(string[][]).
+ * Por isso, montamos uma matriz 2D com o padrão repetido.
+ */
+function applyFormats(
+  table: ExcelScript.Table,
+  fieldOrder: string[],
+  dateFields: Set<string>,
+  numericFields: Set<string>
+): void {
+  const cols = table.getColumns();
+  for (let i = 0; i < fieldOrder.length; i++) {
+    const header = fieldOrder[i];
+    const rng = cols[i].getRangeBetweenHeaderAndTotal();
+    const rCount = rng.getRowCount();
+    const cCount = rng.getColumnCount();
+    if (rCount === 0 || cCount === 0) continue;
+
+    const setFmt = (pattern: string) => {
+      const fmt: string[][] = Array.from({ length: rCount }, () =>
+        Array.from({ length: cCount }, () => pattern)
+      );
+      rng.setNumberFormat(fmt);
+    };
+
+    if (dateFields.has(header)) {
+      setFmt("dd/mm/yyyy");
+    } else if (numericFields.has(header)) {
+      setFmt('[$R$-pt-BR] #,##0.00');
+    }
+  }
+}
+
+/** Limpa banners antigos nas faixas de topo (A1:H2 e L1:R2). */
+function clearBanner(sheet: ExcelScript.Worksheet): void {
+  const r1 = sheet.getRange("A1:H2");
+  const r2 = sheet.getRange("L1:R2");
+
+  // limpa r1
+  try {
+    r1.clear(ExcelScript.ClearApplyTo.contents);
+    const f1 = r1.getFormat();
+    f1.getFill().clear();
+    f1.getFont().setBold(false);
+    f1.getFont().setColor("Auto");
+    f1.setHorizontalAlignment(ExcelScript.HorizontalAlignment.left);
+    f1.setVerticalAlignment(ExcelScript.VerticalAlignment.bottom);
+    f1.setWrapText(false);
+    try { r1.unmerge(); } catch {}
+  } catch {}
+
+  // limpa r2
+  try {
+    r2.clear(ExcelScript.ClearApplyTo.contents);
+    const f2 = r2.getFormat();
+    f2.getFill().clear();
+    f2.getFont().setBold(false);
+    f2.getFont().setColor("Auto");
+    f2.setHorizontalAlignment(ExcelScript.HorizontalAlignment.left);
+    f2.setVerticalAlignment(ExcelScript.VerticalAlignment.bottom);
+    f2.setWrapText(false);
+    try { r2.unmerge(); } catch {}
+  } catch {}
+}
+
+/**
+ * Mostra um banner no topo (verde para sucesso, vermelho para erro).
+ * Usa setValue (um valor para a faixa inteira) para evitar erros de tamanho de matriz.
+ */
+function showBanner(sheet: ExcelScript.Worksheet, message: string, bg: string, fg: string): void {
+  const target = pickBannerTarget(sheet);
+  const rg = sheet.getRange(target);
+  try { rg.merge(true); } catch {}
+  rg.setValue(message); // <-- importante: evita "Range setValues: dimensões não coincidem"
+
+  const fmt = rg.getFormat();
+  fmt.getFill().setColor(bg);
+  fmt.getFont().setColor(fg);
+  fmt.getFont().setBold(true);
+  fmt.setHorizontalAlignment(ExcelScript.HorizontalAlignment.center);
+  fmt.setVerticalAlignment(ExcelScript.VerticalAlignment.center);
+  fmt.setWrapText(true);
+}
+
+/** Escolhe A1:H2 se estiver livre; senão, L1:R2. */
+function pickBannerTarget(sheet: ExcelScript.Worksheet): string {
+  try {
+    const rg = sheet.getRange("A1:H2");
+    const vals = rg.getValues();
+    const busy = (vals as unknown[][]).some((row) => row.some((v) => String(v ?? "").trim() !== ""));
+    return busy ? "L1:R2" : "A1:H2";
+  } catch {
+    return "A1:H2";
+  }
+}
+
+/** Converte índice de coluna (1=A, 2=B...) em letra. */
+function toColLetter(n: number): string {
+  let s = "";
+  while (n > 0) {
+    const m = (n - 1) % 26;
+    s = String.fromCharCode(65 + m) + s;
+    n = Math.floor((n - 1) / 26);
+  }
+  return s;
+}
+
+/**
+ * (Opcional) Aplica validações de lista nos campos CLIENTE, MOTORISTA e CONT
+ * com base na aba LISTAS: títulos "CLIENTES", "MOTORISTAS", "CONT_TIPOS",
+ * e os itens logo abaixo (sem linhas em branco no meio).
+ *
+ * Para ativar, descomente a chamada a esta função no topo do main().
+ */
+function applyDropdownsFromLists(
+  workbook: ExcelScript.Workbook,
+  listsSheetName: string,
+  usedForm: ExcelScript.Range,
+  usedVals: unknown[][],
+  rowCount: number,
+  colCount: number
+): void {
+  const listsSheet = workbook.getWorksheet(listsSheetName);
+  if (!listsSheet) return;
+
+  const usedLists = listsSheet.getUsedRange(true);
+  if (!usedLists) return;
+
+  const listMap: Array<{ field: string; title: string }> = [
+    { field: "CLIENTE",   title: "CLIENTES" },
+    { field: "MOTORISTA", title: "MOTORISTAS" },
+    { field: "CONT",      title: "CONT_TIPOS" }
+  ];
+
+  for (const item of listMap) {
+    const listRange = findNamedListRange(usedLists, item.title);
+    if (!listRange) continue;
+
+    // Localiza a célula de valor do campo no formulário (usando o cache já passado)
+    const valueCell = findValueRangeRightOfLabelCached(usedForm, usedVals, rowCount, colCount, item.field);
+    const dv = valueCell.getDataValidation();
+    dv.setRule({ list: { inCellDropDown: true, source: listRange.getAddress(false, false) } });
+  }
+}
+
+/** Encontra, na aba LISTAS, a faixa de itens abaixo de um título dado. */
+function findNamedListRange(usedRange: ExcelScript.Range, listTitle: string): ExcelScript.Range | null {
+  const vals = usedRange.getValues();
+  const rows = vals.length;
+  const cols = rows > 0 ? (vals[0] as unknown[]).length : 0;
+  const target = normalize(listTitle);
+
+  for (let r = 0; r < rows; r++) {
+    const rowVals = vals[r] as unknown[];
+    for (let c = 0; c < cols; c++) {
+      if (normalize(rowVals[c]) === target) {
+        // pega linhas abaixo até a primeira célula vazia
+        let endRow = r + 1;
+        while (endRow < rows && String((vals[endRow] as unknown[])[c] ?? "").trim() !== "") {
+          endRow++;
+        }
+        if (endRow === r + 1) return null; // sem itens
+        return usedRange.getCell(r + 1, c).getResizedRange(endRow - (r + 1), 0);
+      }
+    }
+  }
+  return null;
+}

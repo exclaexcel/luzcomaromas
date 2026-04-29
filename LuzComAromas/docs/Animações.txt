@@ -1,0 +1,321 @@
+ /* Fundos e estrutura — LIGHT MODE (padrão) */
+  --crepusculo-mistico: #2B2436;
+  --roxo-ameixa: #3B3058;
+  --lilas-nebuloso: #E6DDF4;
+  --texto-claro: #F3EEE7;
+
+  /* Metais: sol e lua */
+  --dourado-sol: #C7A15A;
+  --prata-lua: #C0C5CF;
+
+  /* Coleções */
+  --serenidade: #C9A9C5;
+  --energia: #F39E5B;
+  --intuicao: #A66E3B;
+  --purificacao: #BFD6C6
+
+/* ===== LIGHT MODE (Claro) ===== */
+/* data-theme="light" = modo claro (white bg, black text) */
+[data-theme="light"] {
+  /* Fundos invertidos para modo claro */
+  --crepusculo-mistico: #F5F3F0;
+  --roxo-ameixa: #F0E8F6;
+  --lilas-nebuloso: #2B2436;
+  --texto-claro: #1a1a1a;
+
+  /* Metais ajustados para modo claro */
+  --dourado-sol: #B8860B;
+  --prata-lua: #6B7280;
+
+  /* Coleções ajustadas para contraste */
+  --serenidade: #9B7BA0;
+  --energia: #CC6B2F;
+  --intuicao: #7A4D28;
+  --purificacao: #5A8C7A;
+
+Animações
+Você vai precisar de:
+fade-in
+fade-out
+scroll reveal
+color transition
+
+
+Arquitetura da experiência
+O site não é só uma loja.
+Ele tem:
+marca
+↓
+coleções
+↓
+ritual
+↓
+portal secreto
+↓
+experiência emocional
+Isso é branding experiencial
+
+ Organização estratégica
+Seu checklist é excelente.
+Ele cobre:
+•	identidade
+•	produtos
+•	site
+•	experiência física
+•	experiência digital
+Isso é governança de projeto.
+
+Seu site tem uma jornada muito interessante.
+Mas ela não está desenhada.
+Hoje ela está espalhada nos textos.
+Deveria existir algo assim:
+VISITANTE
+↓
+Home
+↓
+Coleções
+↓
+Produto
+↓
+Compra
+↓
+Unboxing
+↓
+Carta
+↓
+Portal secreto
+↓
+Ritual digital
+Isso é UX Journey Map.
+________________________________________
+4️⃣ O portal ritual é complexo
+Ele envolve:
+•	senha
+•	animação
+•	transição de cores
+•	áudio
+•	oráculo
+•	navegação simbólica
+Isso não é trivial.
+Precisa de um documento tipo:
+Ritual Portal Spec
+
+Seu projeto não é um simples site de velas.
+Ele tem potencial para ser:
+uma marca sensorial digital.
+Você já criou:
+•	narrativa
+•	jornada
+•	ritual
+•	portal secreto
+Isso é experiência de marca, não só e-commerce.
+ 	
+3. Jornada do usuário
+Jornada principal
+Visitante → conhece a Home → entende a proposta da marca → explora coleções → acessa produto → compra → recebe embalagem e carta → encontra a senha → entra no portal ritual → vivencia a extensão emocional da marca
+Jornada alternativa
+Visitante → chega por link ou rede social → acessa uma página de coleção ou produto → descobre a marca → navega para outras áreas → converte
+Jornada de retorno
+Cliente → retorna ao site → visita portal novamente → reforça vínculo emocional com a marca → recompra ou indica
+
+Portal ritual
+Deve entregar mistério com clareza. A experiência precisa ser bonita, mas também simples de usar.
+Estrutura mínima
+1.	Tela de entrada
+2.	Validação de senha
+3.	Boas-vindas ritualística
+4.	Conteúdo principal - Oráculo
+5.	Pequena meditação ou mensagem simbólica
+
+. Regras de UX
+Regra 1
+Beleza nunca pode atrapalhar a clareza.
+Regra 2
+O místico deve ser traduzido em navegação simples.
+Regra 3
+A experiência precisa funcionar muito bem no mobile.
+Regra 4
+Cada página deve ter um objetivo principal e um CTA claro.
+Regra 5
+O portal ritual deve ser enxuto na V1.
+
+O portal ritual não precisa ser foco de SEO, pois sua função é experiência e exclusividade
+
+A LuzComAromas tem potencial para se posicionar como uma marca sensorial com presença digital memorável. O diferencial não está apenas no produto, mas na conexão entre narrativa, estética, ritual e experiência privada. Para o VS Code, o caminho mais seguro é transformar a visão criativa em arquitetura técnica clara, construir uma fundação sólida e lançar uma primeira versão simples, elegante e escalável.
+
+O slogan
+Aromas que acendem momentos
+Isso é muito bom.
+Porque:
+•	é curto
+•	é emocional
+•	conecta com vela
+•	conecta com memória
+É um slogan bem alinhado com branding sensorial.
+
+
+Uma ideia MUITO legal para sua marca
+A chama poderia virar símbolo vivo do site.
+Exemplo:
+•	hover → chama acende
+•	portal → chama pulsa
+•	loading → chama aparece
+Isso cria identidade digital da marca.
+
+Sensorial com toque ritual (o mais poderoso)
+Esse caminho mistura os dois.
+A marca é acessível, mas tem profundidade emocional.
+Como o cliente percebe
+“É uma vela bonita e especial… e ainda tem um ritual secreto.”
+Isso cria encantamento.
+
+Exemplo de posicionamento
+“Aromas que acendem momentos.”
+Percebe?
+Não fala de espiritualidade direta.
+Mas sugere algo maior que o produto.
+✨ sensorial
+🌿 natural
+🔥 ritual leve
+Isso:
+•	amplia o público
+•	mantém elegância
+•	deixa o portal como surpresa
+
+A LuzComAromas tem potencial para ter um diferencial gigantesco que quase nenhuma marca usa:
+✨ o ritual pós-compra.
+A maioria das marcas termina na compra.
+A sua continua.
+compra
+↓
+unboxing
+↓
+senha
+↓
+portal
+↓
+memória emocional
+Isso cria marca memorável.
+________________________________________
+🚨 Agora um alerta importante
+Para isso funcionar bem, o site precisa ser muito elegante.
+Se o design parecer amador, o ritual perde força.
+Então o foco deve ser:
+•	simplicidade
+•	tipografia bonita
+•	animações suaves
+
+ Experiência do site
+O site precisa parecer um ambiente calmo, não um catálogo agressivo.
+Características ideais:
+•	animações suaves
+•	scroll fluido
+•	muito espaço em branco
+•	imagens grandes
+•	textos curtos e poéticos
+
+Estratégia de marca
+Com várias categorias, a LuzComAromas vira:
+uma marca de atmosfera, não apenas de velas.
+Ou seja:
+•	o cliente compra aroma
+•	o cliente compra sensação
+•	o cliente compra momento
+Isso é muito mais forte que vender só um produto
+
+Um detalhe que pode elevar ainda mais a marca
+Cada produto poderia ter um pequeno texto sensorial, por exemplo:
+“Acenda esta vela quando precisar desacelerar o tempo.”
+ou
+“Este aroma foi criado para trazer leveza ao seu espaço.”
+Esses textos reforçam o lado premium acolhedor.
+
+Resumo estratégico
+A LuzComAromas passa a ter:
+•	4 categorias principais
+•	coleções emocionais
+•	kits como destaque
+•	portal ritual como experiência pós-compra
+Isso cria uma marca:
+🌿 sofisticada
+🔥 sensorial
+✨ memorável
+
+
+Oráculo
+O oráculo pode mostrar mensagens aleatórias.
+Exemplo:
+•	“Respire. Nem tudo precisa ser resolvido agora.”
+•	“A pausa também é movimento.”
+•	“A chama existe para lembrar que o tempo é seu.”
+Isso reforça o lado emocional da marca.
+
+ Texto: Acalanto da Alma
+"Sinta o peso do seu corpo encontrar o suporte onde você está. 🪑 Relaxe os ombros, deixando que qualquer tensão acumulada se dissolva como a fumaça da sua vela. ☁️ Sinta suas mãos e pés pesados, quentes e seguros. 🖐️🦶 Respire pausadamente 3 vezes e permita que esse acalanto envolva sua alma, como um abraço que não tem hora para terminar."
+
+Mensagem de Oráculo: Uma frase aleatória de conforto aparece antes de ação final. ✨
+
+Tipo de Mensagem	Exemplo de Texto 📜
+Sobre Clareza	"A resposta que você busca já habita no silêncio da sua mente."
+Sobre Descanso	"Honrar o seu repouso é tão importante quanto celebrar a sua ação."
+Sobre Intuição	"Confie no que o seu coração sentiu quando a chama da vela brilhou."
+
+O tom Poético e Enigmático 🌙 confere uma profundidade que transforma a LuzComAromas em algo quase ancestral. Essas mensagens não entregam respostas prontas; elas convidam o cliente a decifrar a própria intuição.
+
+Aqui está uma sugestão de como esse "baralho" de mensagens pode ser escrito:
+
+Tema	Mensagem do Oráculo 📜
+Clareza	"A luz não apaga a sombra, ela apenas ensina a caminhar através dela." 🕯️
+Descanso	"O silêncio é o solo fértil onde as sementes da alma começam a germinar." 🌱
+Intuição	"Escute o que sopra entre o pavio e a chama; ali reside a sua verdade." 🔥
+Entrega	"As estrelas só são visíveis porque o céu aceitou o convite da escuridão." ✨
+O Layout do Fechamento
+Para que o cliente não se sinta "expulso" do ritual, a interface final após a mensagem do Oráculo deve ser minimalista:
+
+A Mensagem: Aparece centralizada, em uma fonte serifada elegante.
+
+O Selo da Conexão 🤳: Um pequeno ícone de câmera ou moldura com o texto: "Leve essa luz adiante".
+
+O Selo do Caminho 🧭: Uma imagem sutil da vela Acalanto da Alma com o botão: "Mantenha o estado de paz".
+
+Com isso, fechamos o ciclo completo da experiência do Manto de Claridade: desde o toque físico na carta de Tarot dourada 🃏 até o último suspiro de música minimalista no site 🎹.
+
+Característica	Páginas Distintas 📄	Rolagem Infinita 📜
+Foco Mental 🎯	Máximo. O cliente vê apenas o que importa agora. Evita sobrecarga.	Moderado. Ver o texto anterior pode distrair do relaxamento atual.
+Progresso ✨	Sensação de "etapas" ou níveis de consciência que avançam.	Sensação de uma história única ou um "manto" que se desenrola.
+Navegação 🧭	O clique na Lua 🌙 marca uma decisão consciente de mudar de estado.	O movimento é automático. Pode-se passar rápido demais sem sentir.
+Para manter a promessa de Clareza, a opção de páginas distintas costuma ser poderosa, pois "limpa" o visual do celular assim como o aroma limpa a mente. Por outro lado, a rolagem infinita é muito natural no uso mobile.
+
+📱 A Psicologia da Meditação Mobile
+Elemento	Por que usar Telas Separadas?	O Efeito na Meditação 🧠
+Foco no "Agora"	Remove o texto do "Manto de Claridade" para dar espaço ao "Acalanto".	Evita que o cérebro tente "reler" ou processar informações antigas.
+Ritual de Passagem	O clique na Lua 🌙 se torna um gesto simbólico de intenção.	Marca o fim do esforço mental e o início do relaxamento corporal.
+Visual Limpo	Menos elementos na tela do celular = menos ansiedade visual.	Ajuda a manter os olhos suavemente focados ou fechados.
+Se o objetivo é a entrega total, a transição precisa ser o mais "orgânica" possível. Em vez de uma mudança brusca, a tela pode fazer um fade (escurecer suavemente) enquanto o som da harpa 🎹 começa a surgir ao fundo.
+
+Como queremos que ele se sinta "presenteado" por essa mensagem, qual destas formas de exibição você acha que combina mais com o mistério da LuzComAromas?
+
+Revelação por Toque: A frase aparece apenas quando o cliente toca em uma carta virtual selada na tela. 🃏
+
+Surgimento Lento: Após um tempo de silêncio na página, a frase surge sozinha, como se estivesse sendo escrita por uma mão invisível. ✍️
+
+Sopro de Luz: Uma pequena partícula de luz atravessa a tela e se transforma nas palavras do oráculo. ✨
+
+Exemplos do que o Sopro de Luz pode revelar:
+Como o tom é Poético e Enigmático, o "sopro" pode trazer frases como:
+
+"O que você silencia no corpo, a alma grita em sonhos." 🌙
+
+"A clareza não é ver tudo, é saber o que deixar no escuro." 🕯️
+
+"Descansar é o ato mais corajoso de quem busca a própria luz." ✨
+
+
+ 	
+
+
+
+ 	
+
+
+ 	
