@@ -1,0 +1,130 @@
+/* Configuração de Variáveis e Temas */
+:root {
+
+  /* 🏛️ PALETA ESTRUTURAL */
+  --color-bg-light: #F5F0FD;
+  --color-black: #2D1B4E;
+  --color-golden: #C9A84A;
+  --color-golden-light: #E8CC6C;
+  --color-golden-dark: #B89832;
+
+  /* 🧪 PALETA DE CRISTAIS */
+  --color-serenidade: #9B6FC4;
+  --color-energia: #C48B3A;
+  --color-intuicao: #D98EB4;
+  --color-purificacao: #5A9E7A;
+
+  /* 🌫️ APOIO */
+  --color-overlay: rgba(45, 27, 78, 0.05);
+  --color-gold-dust: rgba(212, 184, 74, 0.18);
+
+  /* 🪞 PRATA (apoio sutil no modo claro) */
+  --color-silver: #C8C1D3;
+  --color-silver-light: #E7E1EE;
+  --color-silver-mid: #B4ACBF;
+  --color-silver-dark: #91889F;
+
+  /* 🖋️ TIPOGRAFIA */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Montserrat', sans-serif;
+  --font-sans: 'Raleway', sans-serif;
+}
+
+/* ── TEMA ESCURO (padrão) ─────────────────────────────────── */
+:root, [data-theme="dark"] {
+  --bg-page:           #1E1035;
+  --bg-deep:           rgba(10, 4, 26, 0.98);
+  --bg-section-main:   rgba(30, 16, 53, 0.88);
+  --bg-section-dark:   rgba(14, 6, 32, 0.75);
+  --bg-section-mid:    rgba(45, 20, 80, 0.70);
+  --bg-section-light:  rgba(30, 16, 53, 0.50);
+  --bg-navbar:         rgba(30, 16, 53, 0.95);
+  --bg-footer:         rgba(14, 6, 32, 0.95);
+  --bg-card:           rgba(30, 16, 53, 0.75);
+  --bg-surface:        rgba(30, 16, 53, 0.88);
+
+  --text-primary:      #EDE6F7;
+  --text-secondary:    rgba(237, 230, 247, 0.65);
+  --text-muted:        rgba(237, 230, 247, 0.45);
+  --text-faint:        rgba(237, 230, 247, 0.25);
+
+  --border-gold:       rgba(212, 184, 74, 0.20);
+  --border-subtle:     rgba(237, 230, 247, 0.08);
+  --border-light:      rgba(237, 230, 247, 0.12);
+
+  --cosmic-opacity:    1;
+}
+
+/* ── TEMA CLARO ───────────────────────────────────────────── */
+[data-theme="light"] {
+  /* Fundo geral: lilás cromático, não neutro */
+  --bg-page:           #F3ECFA;
+  --bg-deep:           rgba(243, 236, 250, 0.98);
+
+  /* Seções / transições atmosféricas */
+  --bg-section-main:   rgba(239, 229, 248, 0.92);
+  --bg-section-dark:   rgba(221, 208, 238, 0.88);
+  --bg-section-mid:    rgba(232, 220, 243, 0.82);
+  --bg-section-light:  rgba(250, 247, 253, 0.72);
+
+  /* Moldura oficial preservada — navbar e footer sempre escuros */
+  --bg-navbar:         rgba(30, 16, 53, 0.95);
+  --bg-footer:         rgba(14, 6, 32, 0.95);
+
+  /* Superfícies */
+  --bg-card:           rgba(245, 238, 249, 0.88);
+  --bg-surface:        rgba(239, 229, 248, 0.94);
+
+  /* Texto: roxo profundo para legibilidade sobre lilás */
+  --text-primary:      #241B31;
+  --text-secondary:    rgba(36, 27, 49, 0.76);
+  --text-muted:        rgba(36, 27, 49, 0.56);
+  --text-faint:        rgba(36, 27, 49, 0.34);
+
+  /* Ouro como principal acento da marca */
+  --border-gold:       rgba(201, 168, 74, 0.40);
+
+  /* Prata como apoio sutil — acabamentos e bordas leves */
+  --border-subtle:     rgba(120, 100, 150, 0.22);
+  --border-light:      rgba(170, 148, 200, 0.36);
+
+  /* Partículas cósmicas discretas */
+  --cosmic-opacity:    0.15;
+}
+
+/* Footer e Navbar sempre escuros — tokens de texto forçados ao padrão dark */
+[data-theme="light"] footer,
+[data-theme="light"] nav {
+  --text-primary:   #EDE6F7;
+  --text-secondary: rgba(237, 230, 247, 0.65);
+  --text-muted:     rgba(237, 230, 247, 0.45);
+  --text-faint:     rgba(237, 230, 247, 0.25);
+  --border-gold:    rgba(212, 184, 74, 0.20);
+  --border-subtle:  rgba(237, 230, 247, 0.08);
+  --border-light:   rgba(237, 230, 247, 0.12);
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin: 0;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Classes Utilitárias */
+.bg-serenidade { background-color: var(--color-serenidade); }
+.bg-energia    { background-color: var(--color-energia); }
+.bg-intuicao   { background-color: var(--color-intuicao); }
+.bg-purificacao{ background-color: var(--color-purificacao); }
+
+.text-golden { color: var(--color-golden); }
+
+nav a, button {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
