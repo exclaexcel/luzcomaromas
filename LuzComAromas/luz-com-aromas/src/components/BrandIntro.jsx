@@ -26,7 +26,7 @@ function CandleSVG() {
       />
       <path
         d="M60 78 C60 78 54 88 55 95 C56 101 58 104 60 104 C62 104 64 101 65 95 C66 88 60 78 60 78Z"
-        fill="rgba(217,142,180,0.25)" stroke="#D98EB4" strokeWidth="0.8"
+        fill="rgba(217,142,180,0.25)" stroke="#9A6A8D" strokeWidth="0.8"
       />
       {/* Pavio */}
       <line x1="60" y1="118" x2="60" y2="128" stroke="#C9A84A" strokeWidth="1.5" strokeLinecap="round"/>

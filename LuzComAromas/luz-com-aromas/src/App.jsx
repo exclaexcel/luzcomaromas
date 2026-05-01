@@ -4,6 +4,7 @@ import Footer from './components/layout/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
 import ManualButton from './components/ManualButton'
 import ScrollToTop from './components/ScrollToTop'
+import ScrollRestoration from './components/ScrollRestoration'
 import CosmicBackground from './components/CosmicBackground'
 import Home from './pages/Home'
 import Sobre from './pages/Sobre'
@@ -22,6 +23,7 @@ export default function App() {
     <ThemeProvider>
       <CartProvider>
         <BrowserRouter>
+          <ScrollRestoration />
           <CosmicBackground />
           <div style={{ width: '100%', overflowX: 'hidden', position: 'relative', zIndex: 1 }}>
             <Navbar />

@@ -197,7 +197,7 @@ export default function HeroBanner() {
         {/* CTAs */}
         <div style={{ display: 'flex', gap: '1.25rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link
-            to="/loja"
+            to="/colecoes"
             style={{
               display: 'inline-block',
               padding: '1.1rem 3rem',

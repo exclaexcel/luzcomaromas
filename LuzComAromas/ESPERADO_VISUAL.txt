@@ -1,0 +1,302 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  VALIDAÇÃO VISUAL ESPERADA — LuzComAromas                    ║
+║                      Sistema de Cores Consolidado                            ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+ACESSO: http://localhost:5174
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 ELEMENTO 1: HOME PAGE — CARDS DE COLEÇÃO (MODO ESCURO)
+─────────────────────────────────────────────────────────────────────────────
+
+BG Geral: Roxo profundo (#1E1035)
+Texto: Branco (#EDE6F7)
+
+Card 1: SERENIDADE
+┌─────────────────────────────────┐
+│ ◆ Serenidade                    │  ← Título em Roxo Profundo (#9B6FC4)
+│ Águas Calmas                    │
+│                                 │
+│ Lavanda · Chá Branco · Âmbar    │  ← Descrição em Branco
+│ Suave                           │
+│                                 │  ← BG interno: escuro com
+│ [Icon: teardrop shape]          │     borda roxo sutil
+│ Para pausa e leveza             │
+└─────────────────────────────────┘
+Borda: Roxo sutil (rgba(155,111,196,0.35))
+Glow: Roxo ao redor (rgba(155,111,196,0.30))
+Hover: BG interno fica roxo MUITO transparente (rgba(155,111,196,0.12))
+
+Card 2: ENERGIA
+┌─────────────────────────────────┐
+│ ◆ Energia                       │  ← Título em Laranja Quente (#C97A4A)
+│ Chama Viva                      │    ⚠️ VERIFICAR — deve ser LARANJA, não pálido
+│                                 │
+│ Pitanga · Canela · Laranja      │
+│ Doce                            │
+│                                 │
+│ [Icon: star/flame shape]        │
+│ Para iluminar e ativar          │
+└─────────────────────────────────┘
+Borda: Laranja sutil (rgba(201,122,74,0.35))
+Glow: Laranja ao redor (rgba(201,122,74,0.30))
+Hover: BG laranja MUITO transparente (rgba(201,122,74,0.12))
+
+Card 3: INTUIÇÃO
+┌─────────────────────────────────┐
+│ ◆ Intuição                      │  ← Título em Violeta (#9A6A8D)
+│ Lua Interior                    │    ⚠️ VERIFICAR — deve ser VIOLETA, não pink
+│                                 │
+│ Sândalo · Lírio · Âmbar Quente  │
+│                                 │
+│                                 │
+│ [Icon: crescent moon shape]     │
+│ Para ouvir a si mesmo           │
+└─────────────────────────────────┘
+Borda: Violeta sutil (rgba(154,106,141,0.35))
+Glow: Violeta ao redor (rgba(154,106,141,0.30))
+Hover: BG violeta MUITO transparente (rgba(154,106,141,0.12))
+
+Card 4: PURIFICAÇÃO
+┌─────────────────────────────────┐
+│ ◆ Purificação                   │  ← Título em Verde Menta (#6FA88A)
+│ Névoa Sagrada                   │    ⚠️ VERIFICAR — deve ser VERDE, não azul
+│                                 │
+│ Sálvia · Alecrim · Lavanda      │
+│                                 │
+│                                 │
+│ [Icon: shield shape]            │
+│ Para renovar e purificar        │
+└─────────────────────────────────┘
+Borda: Verde sutil (rgba(111,168,138,0.35))
+Glow: Verde ao redor (rgba(111,168,138,0.30))
+Hover: BG verde MUITO transparente (rgba(111,168,138,0.12))
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 ELEMENTO 2: HOME PAGE — CARDS DE COLEÇÃO (MODO CLARO)
+─────────────────────────────────────────────────────────────────────────────
+
+BG Geral: Lilás cromático (#F3ECFA)
+Texto: Roxo profundo (#241B31)
+
+Cards aparecem com:
+├─ Mesmo layout que modo escuro
+├─ BG mais claro (mas ainda com cor)
+├─ Títulos em cores primárias IGUAIS (não mudam)
+├─ Textos secundários em INK colors (novo):
+│  ├─ Serenidade ink: #8854B9
+│  ├─ Energia ink: #8C4E2C
+│  ├─ Intuição ink: #643F5E
+│  └─ Purificação ink: #456E5A
+└─ Contraste sempre legível
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 ELEMENTO 3: PÁGINA LOJA — FILTROS
+─────────────────────────────────────────────────────────────────────────────
+
+Botões de Filtro:
+
+[Serenidade] [Energia] [Intuição] [Purificação]
+    ▲           ▲         ▲           ▲
+  #9B6FC4    #C97A4A   #9A6A8D     #6FA88A
+   roxo      laranja   violeta      verde
+
+Esperado:
+- 4 cores DIFERENTES
+- Todos com texto branco quando ativos
+- Hover: BG em cor primária com opacidade (rgba .12)
+- Ativo (selecionado): BG em cor primária sólida
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 ELEMENTO 4: PÁGINA PRODUTO (PURIFICAÇÃO)
+─────────────────────────────────────────────────────────────────────────────
+
+Badge de Embalagem:
+┌──────────────────────────────────────┐
+│  🛡️  Embalagem Vidro                │  ← Ícone em Verde (#6FA88A)
+│                                      │     Texto em Verde (#6FA88A)
+│      ⚠️ VERIFICAR CORES              │     ← Deve ser VERDE MENTA
+└──────────────────────────────────────┘
+     BG: Verde muito leve (rgba(111,168,138,0.08))
+     Border: Verde sutil (rgba(111,168,138,0.20))
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 ELEMENTO 5: FOOTER — NEWSLETTER
+─────────────────────────────────────────────────────────────────────────────
+
+Título:
+"Receba as chamas de Luz com Aromas"
+     ↑
+  Ouro (#C9A84A) em itálico — ← VERIFICAR — deve ser OURO
+
+Input de Email:
+┌──────────────────────────────────┐
+│ seu@email.com                    │  ← Borda: Ouro (rgba(212,184,74,...))
+└──────────────────────────────────┘
+
+Mensagem de Erro (se inválido):
+"Por favor, insira um e-mail válido."
+   ↑
+ Violeta (#9A6A8D) — ← VERIFICAR — deve ser VIOLETA
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 ELEMENTO 6: FOOTER — INSTAGRAM LINK
+─────────────────────────────────────────────────────────────────────────────
+
+Estado Normal:
+[  @  ]  ← Ícone em Cinza claro
+Instagram
+
+Estado Hover (mouse sobre):
+[  @  ]  ← Ícone muda para Violeta (#9A6A8D)
+Instagram
+
+Transição: Suave (0.2s)
+Transform: Lift leve (sobe 3px)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 ELEMENTO 7: PASSWORD GATE
+─────────────────────────────────────────────────────────────────────────────
+
+Input de Senha (Normal):
+┌──────────────────────────────────┐
+│ ●●●●●●●●                        │  ← Borda: Ouro (#C9A84A)
+└──────────────────────────────────┘
+
+Input de Senha (Com Erro):
+┌──────────────────────────────────┐
+│ ●●●●●●●●                        │  ← Borda: Violeta (#9A6A8D)
+└──────────────────────────────────┘
+   Animation: Shake suave (0.5s)
+
+Mensagem de Erro:
+"SENHA INCORRETA"
+     ↑
+  Violeta (#9A6A8D) — ← VERIFICAR — deve ser VIOLETA
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 ELEMENTO 8: PÁGINA SOBRE — DESTAQUE DE PRODUTOS
+─────────────────────────────────────────────────────────────────────────────
+
+Seção "Carro-Chefe":
+┌─────────────────────────────────┐
+│ ⭐ CARRO-CHEFE                  │  ← Em Verde (#6FA88A) UPPERCASE
+│                                 │
+│ Manto de Claridade              │  ← Nome em Verde destaque
+│ Coleção Purificação             │
+│                                 │
+│ Um ritual de limpeza...         │
+└─────────────────────────────────┘
+
+Seção "Acalanto da Alma":
+"E quando a mente encontra lugar para repousar..."
+"Acalanto da Alma"  ← Em Roxo (#9B6FC4) destaque
+"o abraço quente após o longo dia"
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 ELEMENTO 9: CARRINHO
+─────────────────────────────────────────────────────────────────────────────
+
+Item:
+[Produto X]                          [Qtd]  [✕]
+                                            ↑
+                                     Cinza claro
+
+Item (Hover sobre ✕):
+[Produto X]                          [Qtd]  [✕]
+                                            ↑
+                                        Violeta (#9A6A8D)
+                                        Transição: 0.2s
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📍 ELEMENTO 10: TEMA — ALTERNÂNCIA
+─────────────────────────────────────────────────────────────────────────────
+
+Transição: Modo Escuro → Claro
+├─ BG: Roxo escuro (#1E1035) → Lilás (#F3ECFA)
+├─ Texto: Branco (#EDE6F7) → Roxo (#241B31)
+├─ Cores primárias: MANTÊM (roxo, laranja, violeta, verde)
+├─ Navbar: Permanece ESCURO (sem inversão)
+├─ Footer: Permanece ESCURO (sem inversão)
+├─ Duração: 0.4s ease
+└─ Resultado: Transição suave, sem flashes
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎯 CHECKLIST RÁPIDO ESPERADO
+
+Home (escuro): 4 cores diferentes visíveis ............. [ ]
+Home (claro): ink colors aparecem ...................... [ ]
+Loja: 4 filtros em cores diferentes ................... [ ]
+Produto: badge em verde (Purificação) ................. [ ]
+Footer: erro em violeta ................................ [ ]
+Footer: Instagram hover em violeta ..................... [ ]
+Password: borda erro em violeta ........................ [ ]
+Sobre: Carro-chefe em verde ............................ [ ]
+Sobre: Acalanto em roxo ................................ [ ]
+Tema: transição suave, navbar permanece escuro ........ [ ]
+
+═══════════════════════════════════════════════════════════════════════════════
+
+⚠️ PONTOS CRÍTICOS A VERIFICAR ESPECIALMENTE
+
+1. ENERGIA: #C97A4A
+   Anterior era #C48B3A (muito pálido)
+   Novo deve parecer mais "QUENTE" e "VIBRANTE"
+   ← Se parecer igual ao anterior, foi revertido
+
+2. INTUIÇÃO: #9A6A8D
+   Anterior era #D98EB4 (pink/magenta)
+   Novo deve parecer mais "VIOLETA" que "PINK"
+   ← Se parecer rosa, foi revertido
+
+3. PURIFICAÇÃO: #6FA88A
+   Anterior era #5A9E7A (verde escuro/frio)
+   Novo deve parecer "VERDE MENTA" (mais quente)
+   ← Se parecer muito escuro/azulado, foi revertido
+
+4. VIOLETA (#9A6A8D)
+   Deve aparecer em:
+   • Card Intuição (home)
+   • Erro de password (borda + texto)
+   • Erro de email (footer)
+   • Instagram hover (footer)
+   • Botão X remove item (carrinho)
+   ← Se cores diferentes aparecerem nesses pontos, há divergência
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📊 RESULTADO ESPERADO FINAL
+
+Sistema de cores LuzComAromas apresenta:
+✅ 4 coleções visualmente distintas
+✅ Cores primárias coerentes em todas as páginas
+✅ Soft colors sutis no hover
+✅ Glows elegantes ao redor de elementos
+✅ Transições suaves entre temas
+✅ Navbar/Footer sempre escuros (sem inversão)
+✅ Contraste legível em ambos os modos
+✅ Nenhuma cor "piscando" ou mudando abruptamente
+✅ Ink colors naturais em modo claro (sem ser óbvio)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎨 CONCLUSÃO
+
+Se todos os elementos acima aparecerem conforme esperado, a validação visual
+está ✅ COMPLETA e o sistema de cores LuzComAromas está 100% coerente.
+
+Servidor: http://localhost:5174
+Guias: VALIDACAO_CORES.md + TESTE_VISUAL_DETALHADO.md + RESUMO_VALIDACAO.md
+
+═══════════════════════════════════════════════════════════════════════════════

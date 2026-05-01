@@ -210,7 +210,7 @@ export default function CartModal({ onClose }) {
                         padding: '0.25rem',
                         transition: 'color 0.2s ease',
                       }}
-                      onMouseEnter={(e) => { e.currentTarget.style.color = '#D98EB4' }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = '#9A6A8D' }}
                       onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-faint)' }}
                     >
                       <svg viewBox="0 0 24 24" fill="none" width="14" height="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">

@@ -13,6 +13,7 @@ import Loja from './pages/Loja'
 import Ritual from './pages/Ritual'
 import Produto from './pages/Produto'
 import Manual from './pages/Manual'
+import Quiz from './pages/Quiz'
 import { CartProvider } from './context/CartContext'
 import { ThemeProvider } from './context/ThemeContext'
 import './index.css'
@@ -33,6 +34,7 @@ export default function App() {
                 <Route path="/colecoes"      element={<Colecoes />} />
                 <Route path="/loja"          element={<Loja />} />
                 <Route path="/ritual"        element={<Ritual />} />
+                <Route path="/quiz"          element={<Quiz />} />
                 <Route path="/produto/:id"   element={<Produto />} />
                 <Route path="/manual"        element={<Manual />} />
               </Routes>

@@ -151,7 +151,7 @@ export default function PasswordGate({ children }) {
                 width: '100%',
                 background: 'transparent',
                 border: 'none',
-                borderBottom: `1px solid ${error ? '#D98EB4' : 'rgba(212, 184, 74, 0.5)'}`,
+                borderBottom: `1px solid ${error ? '#9A6A8D' : 'rgba(212, 184, 74, 0.5)'}`,
                 outline: 'none',
                 padding: '0.75rem 0',
                 textAlign: 'center',
@@ -164,7 +164,7 @@ export default function PasswordGate({ children }) {
                 boxSizing: 'border-box',
               }}
               onFocus={e => { e.currentTarget.style.borderBottomColor = '#C9A84A' }}
-              onBlur={e => { e.currentTarget.style.borderBottomColor = error ? '#D98EB4' : 'rgba(212, 184, 74, 0.5)' }}
+              onBlur={e => { e.currentTarget.style.borderBottomColor = error ? '#9A6A8D' : 'rgba(212, 184, 74, 0.5)' }}
             />
           </div>
 
@@ -177,7 +177,7 @@ export default function PasswordGate({ children }) {
                 fontFamily: "'Raleway', sans-serif",
                 fontSize: '0.7rem',
                 letterSpacing: '0.2em',
-                color: '#D98EB4',
+                color: '#9A6A8D',
                 marginBottom: '1.5rem',
                 textTransform: 'uppercase',
               }}

@@ -1,0 +1,90 @@
+Vou te passar o contexto antes de pedir a alteração.
+
+Estou desenvolvendo o site da marca LuzComAromas.
+
+A marca tem uma identidade sensorial, premium, sofisticada e ritualística. O site não é apenas comercial: ele foi construído para transmitir atmosfera, acolhimento, experiência emocional e um universo visual autoral.
+
+Quero ajustar apenas a lógica visual do modo claro, sem descaracterizar a marca.
+
+Regras importantes:
+- preserve completamente a identidade da marca
+- não transforme o modo claro em branco neutro, bege genérico ou visual comum
+- o modo claro deve continuar cromático, com base lilás clara e sofisticada
+- o objetivo é melhorar a legibilidade, sem perder a atmosfera ritualística
+- o site deve continuar elegante, sensorial e com transições suaves entre seções
+- o dourado continua como principal cor de destaque da marca
+- o prata pode entrar apenas como apoio sutil, acabamento e bordas leves
+- navbar e footer devem permanecer escuros também no modo claro, porque eles fazem parte da identidade oficial da marca
+- não quero mudar a estrutura visual do projeto além do necessário para atualizar o tema
+- preserve o modo escuro existente
+- preserve a coerência com as cores já definidas das coleções
+
+O que eu quero é um modo claro mais legível, mas ainda cromático e atmosférico — um claro lilás funcional, não um claro neutro.
+
+Na próxima mensagem vou te enviar o bloco CSS-base que quero usar como direção para essa atualização.
+``
+
+Agora quero que você aplique essa lógica no theme.css do projeto.
+
+Quero que você:
+1. revise o arquivo atual de tema
+2. identifique se os nomes das variáveis existentes batem com esta proposta
+3. adapte os nomes apenas se necessário, mantendo a mesma lógica visual
+4. atualize somente o modo claro
+5. preserve o modo escuro como está
+6. preserve navbar e footer escuros no modo claro
+7. mantenha o dourado como principal acento
+8. use o prata apenas como apoio sutil
+9. não faça redesign do restante do projeto
+10. me devolva o bloco final atualizado e um resumo do que foi alterado
+
+Use esta proposta como base:
+
+:root {
+  --color-silver: #C8C1D3;
+  --color-silver-light: #E7E1EE;
+  --color-silver-mid: #B4ACBF;
+  --color-silver-dark: #91889F;
+}
+
+[data-theme="light"] {
+  /* Fundo geral */
+  --bg-page: #F3ECFA;
+  --bg-deep: rgba(243, 236, 250, 0.98);
+
+  /* Seções / transições */
+  --bg-section-main: rgba(239, 229, 248, 0.92);
+  --bg-section-dark: rgba(221, 208, 238, 0.88);
+  --bg-section-mid: rgba(232, 220, 243, 0.82);
+  --bg-section-light: rgba(250, 247, 253, 0.72);
+
+  /* Moldura oficial preservada */
+  --bg-navbar: rgba(30, 16, 53, 0.95);
+  --bg-footer: rgba(14, 6, 32, 0.95);
+
+  /* Superfícies */
+  --bg-card: rgba(245, 238, 249, 0.88);
+  --bg-surface: rgba(239, 229, 248, 0.94);
+
+  /* Texto */
+  --text-primary: #241B31;
+  --text-secondary: rgba(36, 27, 49, 0.76);
+  --text-muted: rgba(36, 27, 49, 0.56);
+  --text-faint: rgba(36, 27, 49, 0.34);
+
+  /* Ouro continua como principal acento */
+  --border-gold: rgba(201, 168, 74, 0.36);
+
+  /* Prata como apoio sutil */
+  --border-subtle: rgba(145, 136, 159, 0.20);
+  --border-light: rgba(200, 193, 211, 0.34);
+
+  /* Atmosfera */
+  --cosmic-opacity: 0.10;
+}
+
+Depois de aplicar, quero que você me responda com:
+1. o bloco final atualizado
+2. o que foi alterado
+3. se existe algum ponto visual que ainda merece revisão manual
+4. se alguma variável atual do projeto precisou ser adaptada para encaixar essa nova direção

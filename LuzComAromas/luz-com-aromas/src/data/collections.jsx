@@ -12,7 +12,7 @@ export const collections = [
     ritual: 'Ritual de Pausa',
     momentoDeUso: 'Fim do dia · Leitura · Autocuidado · Descanso',
     tom: 'Suave, acolhedor, íntimo e leve.',
-    microcopy: 'Viver a pausa',
+    microcopy: 'Permita a pausa',
     icon: (
       <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
         <circle cx="40" cy="40" r="28" stroke="currentColor" strokeWidth="1" strokeDasharray="4 3" opacity="0.4"/>
@@ -131,16 +131,16 @@ export const collections = [
     id: 'energia',
     name: 'Energia',
     subtitle: 'Chama Viva',
-    color: '#C48B3A',
-    softColor: '#F39E5B',
-    glowColor: 'rgba(196, 139, 58, 0.3)',
+    color: '#C97A4A',
+    softColor: '#C97A4A',
+    glowColor: 'rgba(201, 122, 74, 0.30)',
     description: 'Pitanga · Canela · Laranja Doce',
     tagline: 'Vitalidade, brilho e intenção para o seu dia.',
     taglineDesc: 'Uma coleção criada para renovar o ânimo e ativar o ambiente.',
     ritual: 'Ritual de Intenção',
     momentoDeUso: 'Manhã · Foco · Ativação · Rotina produtiva',
     tom: 'Luminoso, encorajador, vivo e positivo.',
-    microcopy: 'Acender a intenção',
+    microcopy: 'Acenda sua intenção',
     icon: (
       <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
         <path d="M40 15 L44 30 L58 30 L47 39 L51 54 L40 45 L29 54 L33 39 L22 30 L36 30 Z" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinejoin="round"/>
@@ -257,16 +257,16 @@ export const collections = [
     id: 'intuicao',
     name: 'Intuição',
     subtitle: 'Lua Interior',
-    color: '#D98EB4',
-    softColor: '#C4956A',
-    glowColor: 'rgba(217, 142, 180, 0.3)',
+    color: '#9A6A8D',
+    softColor: '#9A6A8D',
+    glowColor: 'rgba(154, 106, 141, 0.30)',
     description: 'Sândalo · Lírio · Âmbar Quente',
     tagline: 'Profundidade, presença e conexão interior.',
     taglineDesc: 'Aromas que convidam ao silêncio, à escuta e à contemplação.',
     ritual: 'Ritual de Escuta',
     momentoDeUso: 'Noite · Meditação · Concentração · Rituais noturnos',
     tom: 'Profundo, elegante, sensorial e contemplativo.',
-    microcopy: 'Escutar o interior',
+    microcopy: 'Escute com presença',
     icon: (
       <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
         <path d="M50 26 C42 24 34 30 32 38 C30 46 35 54 43 56 C35 58 26 52 24 43 C22 34 28 25 37 22 C42 20 47 22 50 26Z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
@@ -384,16 +384,16 @@ export const collections = [
     id: 'purificacao',
     name: 'Purificação',
     subtitle: 'Névoa Sagrada',
-    color: '#5A9E7A',
-    softColor: '#BFD6C6',
-    glowColor: 'rgba(90, 158, 122, 0.3)',
+    color: '#6FA88A',
+    softColor: '#6FA88A',
+    glowColor: 'rgba(111, 168, 138, 0.30)',
     description: 'Sálvia Branca · Alecrim · Lavanda Leve',
     tagline: 'Leveza, frescor e renovação.',
     taglineDesc: 'Uma experiência de limpeza sutil para clarear o espaço e respirar melhor.',
     ritual: 'Ritual de Renovação',
     momentoDeUso: 'Após dia intenso · Limpeza do espaço · Recomeço · Bem-estar',
     tom: 'Claro, fresco, purificador e restaurador.',
-    microcopy: 'Renovar o espaço',
+    microcopy: 'Renove o espaço',
     icon: (
       <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
         <path d="M40 58 C40 58 22 48 22 34 C22 25.2 30.3 18 40 18 C49.7 18 58 25.2 58 34 C58 48 40 58 40 58Z" stroke="currentColor" strokeWidth="1.5" fill="none"/>

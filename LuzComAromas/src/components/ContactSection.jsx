@@ -139,10 +139,11 @@ export default function ContactSection() {
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
               <div>
-                <label style={{ display: 'block', fontFamily: "'Raleway', sans-serif", fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
+                <label htmlFor="from_name" style={{ display: 'block', fontFamily: "'Raleway', sans-serif", fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
                   Nome
                 </label>
                 <input
+                  id="from_name"
                   type="text"
                   name="from_name"
                   value={form.from_name}
@@ -155,10 +156,11 @@ export default function ContactSection() {
                 />
               </div>
               <div>
-                <label style={{ display: 'block', fontFamily: "'Raleway', sans-serif", fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
+                <label htmlFor="from_email" style={{ display: 'block', fontFamily: "'Raleway', sans-serif", fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
                   Email
                 </label>
                 <input
+                  id="from_email"
                   type="email"
                   name="from_email"
                   value={form.from_email}
@@ -173,10 +175,11 @@ export default function ContactSection() {
             </div>
 
             <div>
-              <label style={{ display: 'block', fontFamily: "'Raleway', sans-serif", fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
+              <label htmlFor="subject" style={{ display: 'block', fontFamily: "'Raleway', sans-serif", fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
                 Coleção de Interesse
               </label>
               <select
+                id="subject"
                 name="subject"
                 value={form.subject}
                 onChange={handleChange}
@@ -198,10 +201,11 @@ export default function ContactSection() {
             </div>
 
             <div>
-              <label style={{ display: 'block', fontFamily: "'Raleway', sans-serif", fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
+              <label htmlFor="message" style={{ display: 'block', fontFamily: "'Raleway', sans-serif", fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
                 Mensagem
               </label>
               <textarea
+                id="message"
                 name="message"
                 value={form.message}
                 onChange={handleChange}
@@ -225,7 +229,7 @@ export default function ContactSection() {
               <p
                 role="alert"
                 aria-live="assertive"
-                style={{ fontFamily: "'Raleway', sans-serif", fontSize: '0.72rem', color: '#D98EB4', letterSpacing: '0.15em', textAlign: 'center', textTransform: 'uppercase' }}
+                style={{ fontFamily: "'Raleway', sans-serif", fontSize: '0.72rem', color: '#9A6A8D', letterSpacing: '0.15em', textAlign: 'center', textTransform: 'uppercase' }}
               >
                 Algo deu errado. Tente novamente ou fale pelo WhatsApp.
               </p>

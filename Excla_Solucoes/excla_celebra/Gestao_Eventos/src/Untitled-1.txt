@@ -1,0 +1,17 @@
+[log] [vite] connecting...
+[warning] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[log] [vite] connected.
+[log] [vite] hot updated: /src/CalendarioPage.jsx
+[log] [vite] connecting...
+[log] [vite] connected.
+[warning] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[log] [vite] hot updated: /src/QuantidadesPage.jsx
+[log] [vite] hot updated: /src/QuantidadesPage.jsx
+[log] Uncaught ReferenceError: aplicarNaVisaoGeral is not defined
+[error] %s
+
+%s
+ An error occurred in the <QuantidadesPage> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+[log] [vite] hot updated: /src/QuantidadesPage.jsx
+[log] [vite] hot updated: /src/QuantidadesPage.jsx

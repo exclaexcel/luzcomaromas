@@ -1,0 +1,128 @@
+Quero que você atue apenas como diretor visual e revisor de atmosfera do portal/ritual da LuzComAromas.
+
+IMPORTANTE:
+o escopo aqui é somente visual.
+
+NÃO quero que você:
+- altere a lógica do portal
+- altere a ordem das etapas
+- recrie o fluxo
+- reescreva os textos
+- troque a narrativa
+- proponha nova arquitetura
+- substitua a experiência atual por outra
+
+A experiência já existe e está aprovada conceitualmente.
+
+As etapas atuais do portal já estão definidas e devem ser mantidas:
+- entrada
+- pausa / respiração
+- mensagem-guia
+- carta / oráculo
+- encerramento
+
+## OBJETIVO
+Quero apenas melhorar a camada visual e simbólica dessas etapas, mantendo toda a estrutura existente.
+
+Ou seja:
+- sem mexer em texto
+- sem mexer em lógica
+- sem mexer em navegação
+- sem redesign estrutural
+- sem alterar a sequência
+- sem sugerir nova experiência
+
+Quero somente sugestões de refinamento visual.
+
+## CONTEXTO DE MARCA
+A LuzComAromas é uma marca sensorial, premium, sofisticada e ritualística.
+O portal/oráculo deve parecer:
+- íntimo
+- encantado
+- acolhedor
+- simbólico
+- especial
+- elegante
+- e ligado ao universo das velas
+
+## DIREÇÃO VISUAL APROVADA
+Quero enriquecer o portal com uma camada simbólica mais visível, mas com acabamento premium.
+
+Quero foco principalmente em elementos ligados ao universo das velas, como:
+- chama
+- centelha
+- faísca
+- sopro
+- fumaça suave
+- brilho delicado
+- luz ritual
+- carta
+- selo
+- lacre
+- divisores finos
+- microornamentos
+- sensação de presente secreto
+
+## O QUE EVITAR
+Não quero:
+- astrologia excessiva
+- lua
+- sol
+- excesso cósmico genérico
+- excesso decorativo
+- estética esotérica caricata
+- símbolos demais ao mesmo tempo
+- aparência infantil
+- emoji literal como linguagem final principal
+
+## COMO QUERO QUE VOCÊ RESPONDA
+Quero uma resposta organizada por etapa do portal, mas APENAS em termos visuais.
+
+Para cada etapa, diga somente:
+1. quais elementos visuais simbólicos podem ser usados
+2. onde esses elementos podem aparecer
+3. se devem ser protagonistas ou detalhes
+4. como eles ajudam a enriquecer a atmosfera sem poluir a interface
+
+As etapas para analisar são:
+
+### 1. Entrada
+### 2. Pausa / respiração
+### 3. Mensagem-guia
+### 4. Carta / oráculo
+### 5. Encerramento
+
+## LIMITE DO ESCOPO
+Se em algum momento sua resposta começar a sugerir:
+- alteração de texto
+- alteração de fluxo
+- nova ordem de telas
+- nova estrutura de experiência
+- nova lógica de interação
+
+considere isso FORA DO ESCOPO.
+
+## RESULTADO QUE EU ESPERO
+Quero sair com orientações práticas de refinamento visual para a experiência que já existe.
+
+Quero que você pense como alguém que vai:
+- vestir melhor o portal
+- enriquecer a atmosfera
+- reforçar a simbologia
+- preservar a sofisticação
+- sem alterar a base já aprovada
+
+Se sua resposta começar a alterar texto, fluxo ou estrutura, considere isso fora do escopo.
+
+Antes de sugerir qualquer ajuste, analise os arquivos atuais do portal/ritual para basear suas sugestões no que já existe no código.
+Agora quero que você converta essas sugestões em uma lista objetiva de ajustes visuais aplicáveis no código, sem alterar a estrutura atual do portal.
+Ao final, organize as sugestões também em:
+- o que pode ser resolvido só com CSS
+- o que exige pequeno ajuste em componente
+- o que deve permanecer intocado
+
+Pense como alguém refinando uma experiência já pronta, e não como alguém criando uma nova experiência.
+Seu trabalho aqui é melhorar a pele visual da experiência, não mexer no esqueleto dela.
+
+Antes de responder, faça um resumo em 3 tópicos do que você entendeu do meu pedido.
+Assim eu consigo validar rapidamente se você interpretou corretamente o escopo antes de aprofundar.

@@ -4,11 +4,60 @@ import ThemeToggle from '../ThemeToggle'
 import CartButton from '../CartButton'
 import CartModal from '../CartModal'
 
+function IconHome() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" width="13" height="13" aria-hidden="true">
+      <path d="M8 3 C8 3 5 6 5 9 C5 10.7 6.3 12 8 12 C9.7 12 11 10.7 11 9 C11 6 8 3 8 3Z" />
+      <circle cx="8" cy="9" r="1.5" fill="currentColor" opacity="0.5" stroke="none" />
+    </svg>
+  )
+}
+
+function IconSobre() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" width="13" height="13" aria-hidden="true">
+      <circle cx="8" cy="8" r="5.5" />
+      <circle cx="8" cy="8" r="1.5" fill="currentColor" opacity="0.4" stroke="none" />
+      <path d="M8 2.5 L8 4 M8 12 L8 13.5 M2.5 8 L4 8 M12 8 L13.5 8" strokeWidth="1" />
+    </svg>
+  )
+}
+
+function IconColecoes() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" width="13" height="13" aria-hidden="true">
+      <circle cx="5" cy="5" r="2.5" />
+      <circle cx="11" cy="5" r="2.5" />
+      <circle cx="5" cy="11" r="2.5" />
+      <circle cx="11" cy="11" r="2.5" />
+    </svg>
+  )
+}
+
+function IconLoja() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" width="13" height="13" aria-hidden="true">
+      <path d="M5 7 C5 5 6 3.5 8 3.5 C10 3.5 11 5 11 7" />
+      <rect x="3" y="7" width="10" height="6" rx="1" />
+    </svg>
+  )
+}
+
+function IconRitual() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" width="13" height="13" aria-hidden="true">
+      <path d="M10 3 C8 2.5 5.5 4 5 7 C4.5 10 6.5 12.5 9.5 13 C7 13.5 4 11 3.5 8 C3 5 5 2.5 8 2 C9 1.8 9.6 2.3 10 3Z" />
+      <circle cx="12" cy="4" r="0.8" fill="currentColor" stroke="none" />
+      <circle cx="13" cy="7" r="0.5" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
 const NAV_LINKS = [
-  { to: '/',         label: 'Home' },
-  { to: '/sobre',    label: 'Sobre' },
-  { to: '/colecoes', label: 'Coleções' },
-  { to: '/loja',     label: 'Loja' },
+  { to: '/',         label: 'Home',     icon: <IconHome /> },
+  { to: '/sobre',    label: 'Sobre',    icon: <IconSobre /> },
+  { to: '/colecoes', label: 'Coleções', icon: <IconColecoes /> },
+  { to: '/loja',     label: 'Loja',     icon: <IconLoja /> },
 ]
 
 export default function Navbar() {
@@ -60,7 +109,7 @@ export default function Navbar() {
 
           {/* Nav desktop */}
           <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }} className="hidden-mobile">
-            {NAV_LINKS.map(({ to, label }) => (
+            {NAV_LINKS.map(({ to, label, icon }) => (
               <Link
                 key={to}
                 to={to}
@@ -74,10 +123,14 @@ export default function Navbar() {
                   transition: 'color 0.3s ease',
                   borderBottom: pathname === to ? `1px solid ${textActive}` : '1px solid transparent',
                   paddingBottom: '4px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
                 }}
                 onMouseEnter={e => { if (pathname !== to) e.currentTarget.style.color = textHover }}
                 onMouseLeave={e => { if (pathname !== to) e.currentTarget.style.color = textColor }}
               >
+                {icon}
                 {label}
               </Link>
             ))}
@@ -96,10 +149,14 @@ export default function Navbar() {
                 padding: '0.6rem 1.5rem',
                 borderRadius: '1px',
                 transition: 'all 0.3s ease',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
               }}
               onMouseEnter={e => { if (pathname !== '/ritual') { e.currentTarget.style.background = '#C9A84A'; e.currentTarget.style.color = '#1E1035' }}}
               onMouseLeave={e => { if (pathname !== '/ritual') { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#C9A84A' }}}
             >
+              <IconRitual />
               Ritual
             </Link>
 
@@ -144,7 +201,7 @@ export default function Navbar() {
             flexDirection: 'column',
             gap: '1.5rem',
           }}>
-            {[...NAV_LINKS, { to: '/ritual', label: 'Ritual' }].map(({ to, label }) => (
+            {[...NAV_LINKS, { to: '/ritual', label: 'Ritual', icon: <IconRitual /> }].map(({ to, label, icon }) => (
               <Link
                 key={to}
                 to={to}
@@ -156,8 +213,12 @@ export default function Navbar() {
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
                   color: pathname === to ? textActive : textColor,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
                 }}
               >
+                {icon}
                 {label}
               </Link>
             ))}

@@ -435,9 +435,9 @@ export default function Sobre() {
           <div style={{ margin: '2.5rem 0 3rem' }}>
             {[
               { name: 'Serenidade', color: '#9B6FC4', desc: 'para dias que pedem maciez e leveza.' },
-              { name: 'Energia',    color: '#C48B3A', desc: 'para iluminar o movimento interno e ativar o dia.' },
-              { name: 'Intuição',   color: '#D98EB4', desc: 'para ouvir a si mesmo com mais profundidade.' },
-              { name: 'Purificação',color: '#5A9E7A', desc: 'para renovar o ar, a mente e o espaço.' },
+              { name: 'Energia',    color: '#C97A4A', desc: 'para iluminar o movimento interno e ativar o dia.' },
+              { name: 'Intuição',   color: '#9A6A8D', desc: 'para ouvir a si mesma com mais profundidade.' },
+              { name: 'Purificação',color: '#6FA88A', desc: 'para renovar o ar, a mente e o espaço.' },
             ].map(({ name, color, desc }, i) => (
               <CollectionLine key={name} name={name} color={color} desc={desc} index={i} />
             ))}
@@ -457,7 +457,7 @@ export default function Sobre() {
                 fontSize: '0.6rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
-                color: '#5A9E7A',
+                color: '#6FA88A',
                 marginBottom: '0.75rem',
               }}>
                 Carro-chefe
@@ -471,7 +471,7 @@ export default function Sobre() {
                 lineHeight: 1.75,
                 margin: 0,
               }}>
-                O <strong style={{ color: '#5A9E7A', fontWeight: 400 }}>Manto de Claridade</strong>, da coleção Purificação — um ritual de limpeza e renascimento que abre espaço dentro da casa e dentro da alma.
+                O <strong style={{ color: '#6FA88A', fontWeight: 400 }}>Manto de Claridade</strong>, da coleção Purificação — um ritual de limpeza e renascimento que abre espaço dentro da casa e dentro da alma.
               </p>
             </div>
 

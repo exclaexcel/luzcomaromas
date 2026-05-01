@@ -268,14 +268,14 @@ export default function Produto() {
                 alignItems: 'center',
                 gap: '0.6rem',
                 padding: '0.75rem',
-                background: 'rgba(90, 158, 122, 0.08)',
-                border: '1px solid rgba(90, 158, 122, 0.2)',
+                background: 'rgba(111, 168, 138, 0.08)',
+                border: '1px solid rgba(111, 168, 138, 0.2)',
                 borderRadius: '2px',
               }}>
-                <svg viewBox="0 0 24 24" fill="none" width="14" height="14" stroke="#5A9E7A" strokeWidth="1.5" strokeLinecap="round">
+                <svg viewBox="0 0 24 24" fill="none" width="14" height="14" stroke="#6FA88A" strokeWidth="1.5" strokeLinecap="round">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
-                <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: '0.65rem', letterSpacing: '0.1em', color: '#5A9E7A' }}>
+                <span style={{ fontFamily: "'Raleway', sans-serif", fontSize: '0.65rem', letterSpacing: '0.1em', color: '#6FA88A' }}>
                   {product.packaging}
                 </span>
               </div>
