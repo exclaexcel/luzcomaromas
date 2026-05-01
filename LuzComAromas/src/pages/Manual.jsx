@@ -28,13 +28,25 @@ export default function Manual() {
           letterSpacing: '0.04em',
           marginBottom: '1rem',
         }}>
-          Manual do Ritual
+          Manual de Cuidados com a sua Vela
         </h1>
         <div style={{
           width: '50px', height: '1px',
           background: 'linear-gradient(90deg, transparent, #C9A84A, transparent)',
-          margin: '0 auto',
+          margin: '1.5rem auto',
         }} />
+        <p style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.1rem)',
+          fontWeight: 300,
+          fontStyle: 'italic',
+          lineHeight: 1.85,
+          color: 'var(--text-muted)',
+          maxWidth: '520px',
+          margin: '0 auto',
+        }}>
+          Pequenos gestos ajudam a preservar a beleza da queima, a fragrância e a qualidade de cada ritual.
+        </p>
       </div>
       <RitualManual />
     </div>
