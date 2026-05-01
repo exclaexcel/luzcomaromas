@@ -9,9 +9,9 @@ export const products = [
     tagline: 'Uma limpeza que começa pelo espaço e termina na alma.',
     badge: 'Carro-chefe',
     notes: {
-      top: 'Bergamota · Gerânio',
-      heart: 'Jasmim · Lavanda',
-      base: 'Almíscar · Cedrinho',
+      top: 'Sálvia Branca',
+      heart: 'Alecrim',
+      base: 'Lavanda Leve',
     },
     specs: {
       burn: '40h',
@@ -20,7 +20,7 @@ export const products = [
       wick: 'Pavio de algodão',
     },
     packaging: 'Embalagem sustentável e reutilizável',
-    description: 'Uma vela criada para abrir espaço — no ambiente e dentro de você. Os aromas de sálvia branca, alecrim e bergamota trabalham juntos para dissipar o peso do dia e convidar ao recomeço.',
+    description: 'Uma vela criada para abrir espaço — no ambiente e dentro de você. Os aromas de sálvia branca, alecrim e lavanda leve trabalham juntos para dissipar o peso do dia e convidar ao recomeço.',
   },
   // ── SERENIDADE ───────────────────────────────────────────────
   {
@@ -32,9 +32,9 @@ export const products = [
     tagline: 'O abraço quente que chega depois do longo dia.',
     badge: null,
     notes: {
-      top: 'Lavanda Francesa · Chá Branco',
-      heart: 'Baunilha Suave · Íris',
-      base: 'Âmbar Suave · Musgo Branco',
+      top: 'Lavanda',
+      heart: 'Chá Branco',
+      base: 'Âmbar Suave',
     },
     specs: {
       burn: '40h',
@@ -43,7 +43,7 @@ export const products = [
       wick: 'Pavio de algodão',
     },
     packaging: 'Embalagem sustentável e reutilizável',
-    description: 'Criado para os momentos em que o corpo quer parar e a mente ainda não consegue. A lavanda e a baunilha trabalham juntas para suavizar o que está tenso e acolher o que está cansado.',
+    description: 'Criado para os momentos em que o corpo quer parar e a mente ainda não consegue. A lavanda, o chá branco e o âmbar suave trabalham juntos para suavizar o que está tenso e acolher o que está cansado.',
   },
   // ── ENERGIA ──────────────────────────────────────────────────
   {
@@ -55,9 +55,9 @@ export const products = [
     tagline: 'A intenção que antecede cada gesto do seu dia.',
     badge: null,
     notes: {
-      top: 'Laranja Doce · Limão Siciliano',
-      heart: 'Gengibre · Canela Leve',
-      base: 'Âmbar Quente · Pitanga',
+      top: 'Laranja Doce',
+      heart: 'Canela',
+      base: 'Pitanga',
     },
     specs: {
       burn: '40h',
@@ -66,7 +66,7 @@ export const products = [
       wick: 'Pavio de algodão',
     },
     packaging: 'Embalagem sustentável e reutilizável',
-    description: 'Para manhãs que precisam de clareza e movimento. A combinação de cítricos com especiarias suaves ativa o ambiente e convida o corpo a entrar em ação com leveza.',
+    description: 'Para manhãs que precisam de clareza e movimento. A combinação de laranja doce, canela e pitanga ativa o ambiente e convida o corpo a entrar em ação com leveza e vitalidade.',
   },
   // ── INTUIÇÃO ─────────────────────────────────────────────────
   {
@@ -78,9 +78,9 @@ export const products = [
     tagline: 'A sabedoria que reside além do pensamento.',
     badge: null,
     notes: {
-      top: 'Íris · Neroli',
-      heart: 'Sândalo Branco · Âmbar Rosa',
-      base: 'Baunilha Escura · Patchouli Suave',
+      top: 'Lírio',
+      heart: 'Sândalo',
+      base: 'Âmbar Quente',
     },
     specs: {
       burn: '42h',
@@ -89,7 +89,7 @@ export const products = [
       wick: 'Pavio de algodão',
     },
     packaging: 'Embalagem sustentável e reutilizável',
-    description: 'Criada para meditação e conexão profunda. Um aroma que fala ao inconsciente com suavidade, guiando a mente para camadas mais calmas e sábias.',
+    description: 'Criada para meditação e conexão profunda. Um aroma que fala ao inconsciente com suavidade — lírio, sândalo e âmbar quente guiam a mente para camadas mais calmas e sábias.',
   },
 ]
 

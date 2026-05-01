@@ -15,13 +15,11 @@ import Ritual from './pages/Ritual'
 import Produto from './pages/Produto'
 import Manual from './pages/Manual'
 import { CartProvider } from './context/CartContext'
-import { ThemeProvider } from './context/ThemeContext'
 import './index.css'
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <CartProvider>
+    <CartProvider>
         <BrowserRouter>
           <ScrollRestoration />
           <CosmicBackground />
@@ -46,6 +44,5 @@ export default function App() {
           </div>
         </BrowserRouter>
       </CartProvider>
-    </ThemeProvider>
   )
 }

@@ -73,7 +73,7 @@ export default function BrandIntro() {
             textTransform: 'uppercase',
             color: '#C9A84A',
           }}>
-            Nossa História
+            Como Nasceu
           </span>
           <div className="section-divider" style={{ marginTop: '1rem' }} />
         </div>
@@ -156,7 +156,7 @@ export default function BrandIntro() {
               letterSpacing: '0.01em',
               marginBottom: '2.5rem',
             }}>
-              A LuzComAromas nasceu do desejo de transformar a rotina em ritual. Cada vela carrega uma intenção — de criar momentos reais de presença, pausa e reencontro com o que importa de verdade. Acreditamos no poder do sensorial: no silêncio que aparece quando o ambiente muda, no respiro que chega quando a luz acende.
+              A LuzComAromas nasceu do desejo de transformar a rotina em ritual. Cada vela carrega uma intenção — de criar momentos reais de presença, pausa e reencontro com o que importa de verdade. A marca acredita no poder do sensorial: no silêncio que aparece quando o ambiente muda, no respiro que chega quando a luz acende.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>

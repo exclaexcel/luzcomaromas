@@ -331,21 +331,21 @@ export default function Sobre() {
         </div>
       </section>
 
-      {/* ── Nossa Essência ────────────────────────────────────── */}
+      {/* ── A Essência da Marca ────────────────────────────────────── */}
       <section style={{
         backgroundColor: 'var(--bg-section-mid)',
         padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem)',
       }}>
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <Reveal>
-            <Label>Nossa Essência</Label>
+            <Label>A Essência da Marca</Label>
             <SectionTitle>Delicadeza. Estética. Presença.</SectionTitle>
             <AccentLine />
             <Body>
-              Criamos peças que unem delicadeza, estética minimalista e uma atmosfera mística que abraça, sem pesar. Cada detalhe — a luz, o aroma, a brisa que se espalha — é pensado para conduzir o corpo e a mente a um lugar mais calmo.
+              Cada peça une delicadeza, estética minimalista e uma atmosfera mística que abraça, sem pesar. Cada detalhe — a luz, o aroma, a brisa que se espalha — é pensado para conduzir o corpo e a mente a um lugar mais calmo.
             </Body>
             <Body>
-              Nossos produtos existem para marcar o tempo de um jeito diferente: com suavidade, com intenção, com alma.
+              Cada produto existe para marcar o tempo de um jeito diferente: com suavidade, com intenção, com alma.
             </Body>
           </Reveal>
         </div>
@@ -376,26 +376,26 @@ export default function Sobre() {
 
       {/* ── Citação de respiro ────────────────────────────────── */}
       <BigQuote color="var(--text-muted)">
-        "Somos uma marca que acredita no poder do sensorial como linguagem.<br />
+        "A LuzComAromas é uma marca que acredita no poder do sensorial como linguagem.<br />
         No silêncio que nasce quando o ambiente muda.<br />
         No respiro que chega quando a luz acende."
       </BigQuote>
 
-      {/* ── Nosso Jeito de Fazer ──────────────────────────────── */}
+      {/* ── O Jeito de Fazer ──────────────────────────────── */}
       <section style={{
         backgroundColor: 'var(--bg-section-dark)',
         padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem)',
       }}>
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <Reveal>
-            <Label>Nosso Jeito de Fazer</Label>
+            <Label>O Jeito de Fazer</Label>
             <SectionTitle>Nada aqui é feito às pressas.</SectionTitle>
             <AccentLine />
             <Body>
               Cada aroma é pensado para carregar um propósito. Cada detalhe visual é desenhado para trazer calma. Cada embalagem é um convite ao toque, à respiração, ao momento.
             </Body>
             <Body>
-              Nossos produtos vêm acompanhados de instruções cuidadosas para que o ritual seja seguro, leve e prazeroso — sempre de um jeito simples, acolhedor e acessível.
+              Cada produto vem acompanhado de instruções cuidadosas para que o ritual seja seguro, leve e prazeroso — sempre de um jeito simples, acolhedor e acessível.
             </Body>
           </Reveal>
 
@@ -412,7 +412,7 @@ export default function Sobre() {
               paddingLeft: '1.75rem',
               margin: '3rem 0 0',
             }}>
-              "Queremos que você sinta que está segurando algo que foi criado com presença."
+              "Cada peça foi criada para que você sinta que está segurando algo feito com presença."
             </blockquote>
           </Reveal>
         </div>
@@ -428,7 +428,7 @@ export default function Sobre() {
             <SectionTitle>Cada coleção nasce de um estado de espírito.</SectionTitle>
             <AccentLine />
             <Body>
-              Não criamos por categoria, criamos por sensação. Cada linha tem um momento, um ritual, uma intenção — e os aromas foram escolhidos para despertar exatamente isso.
+              A LuzComAromas não cria por categoria — cria por sensação. Cada linha tem um momento, um ritual, uma intenção — e os aromas foram escolhidos para despertar exatamente isso.
             </Body>
           </Reveal>
 
@@ -525,7 +525,7 @@ export default function Sobre() {
       }}>
         <div style={{ maxWidth: '720px', margin: '0 auto' }}>
           <Reveal>
-            <Label>Nossa Promessa</Label>
+            <Label>A Promessa</Label>
             <div className="section-divider" style={{ marginBottom: '3rem' }} />
             <p style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",

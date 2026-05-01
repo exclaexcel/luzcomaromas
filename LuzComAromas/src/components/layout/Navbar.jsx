@@ -1,6 +1,5 @@
 ﻿import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import ThemeToggle from '../ThemeToggle'
 import CartButton from '../CartButton'
 import CartModal from '../CartModal'
 
@@ -160,15 +159,11 @@ export default function Navbar() {
               Ritual
             </Link>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginLeft: '0.25rem' }}>
-              <ThemeToggle />
-              <CartButton onClick={() => setCartOpen(true)} />
-            </div>
+            <CartButton onClick={() => setCartOpen(true)} />
           </nav>
 
-          {/* Mobile: toggle + cart + hamburger */}
+          {/* Mobile: cart + hamburger */}
           <div className="show-mobile" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <ThemeToggle />
             <CartButton onClick={() => setCartOpen(true)} />
             <button
               onClick={() => setOpen(o => !o)}
