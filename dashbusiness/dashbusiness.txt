@@ -1,0 +1,145 @@
+# Dash Business
+
+Site institucional da **Dash Business**, desenvolvido em **HTML, CSS e JavaScript**, com foco em apresentar a empresa, os especialistas e o portfólio de projetos de forma clara, moderna e profissional.
+
+## Sobre o projeto
+
+A **Dash Business** é uma empresa de consultoria em dados e soluções analíticas, focada em transformar informações em decisões estratégicas. Atuamos no desenvolvimento de soluções personalizadas que ajudam empresas a organizar dados, reduzir trabalhos manuais e repetitivos e gerar mais eficiência na rotina, criando valor real para negócios de qualquer porte e segmento.
+
+Este projeto tem como objetivo criar uma presença digital institucional com visual moderno, identidade forte e estrutura preparada para crescimento futuro.
+
+## Objetivos do site
+
+- Apresentar a **Dash Business** de forma institucional e profissional
+- Destacar o papel e a especialidade de cada consultor
+- Exibir o portfólio como uma **biblioteca de projetos**
+- Reforçar o posicionamento da empresa como consultoria orientada a dados, eficiência e tomada de decisão
+- Manter um layout limpo, responsivo e pronto para publicação no **GitHub Pages**
+
+## Estrutura do site
+
+O site foi planejado como uma **one page**, com navegação fluida entre as seções:
+
+- **Hero**  
+  Apresentação principal da Dash Business
+
+- **Sobre**  
+  Visão geral da empresa e proposta de valor
+
+- **Especialistas**  
+  Apresentação dos três consultores:
+  - Juliano
+  - Dany Pinheiro
+  - Roseane
+
+- **Portfólio**  
+  Biblioteca visual de projetos já realizados
+
+- **Rodapé / Contato**  
+  Informações institucionais e espaço para links futuros
+
+## Especialistas
+
+### Juliano
+Consultor em estratégia, arquitetura de soluções e inteligência analítica. Atua no desenvolvimento de soluções analíticas e sistemas de apoio à tomada de decisão, com forte experiência em análise financeira, automação e modelagem de dados.
+
+**Diferencial:**  
+Estratégia e inteligência para decisões melhores.
+
+### Dany Pinheiro
+Consultora em dados, automação e inteligência operacional, formada em Administração e Ciências Contábeis, com pós-graduação em Controladoria e Finanças Empresariais e Executive MBA em Análises de Dados. Atua no desenvolvimento de soluções analíticas que apoiam a tomada de decisão com foco em eficiência e clareza estratégica.
+
+**Diferencial:**  
+Dados organizados, análises claras e decisões mais seguras.
+
+### Roseane
+Consultora nas áreas administrativa, financeira e analítica, com experiência em controles operacionais, vendas, estoque e gestão financeira. É formada em Ciências Contábeis e Segurança do Trabalho, com Executive MBA em Análise de Dados, apoiando empresas na organização das informações e na melhoria da eficiência operacional.
+
+**Diferencial:**  
+Organização e controle como base para decisões seguras.
+
+## Identidade visual
+
+A proposta visual do projeto segue uma linha:
+
+- **Dark mode**
+- Visual moderno e elegante
+- Destaques em **verde**
+- Layout inspirado no portfólio pessoal base da Dany
+- Aparência limpa, técnica e institucional
+
+### Paleta sugerida
+
+- **Fundo principal:** `#0B1114`
+- **Fundo secundário:** `#10181D`
+- **Cards:** `#131D22`
+- **Verde destaque:** `#19C37D`
+- **Verde hover:** `#27E08F`
+- **Texto principal:** `#F5F7F8`
+- **Texto secundário:** `#A8B3BA`
+
+## Tecnologias utilizadas
+
+- **HTML5**
+- **CSS3**
+- **JavaScript Vanilla**
+
+## Estrutura de pastas sugerida
+
+```bash
+/
+├── index.html
+├── assets/
+│   ├── img/
+│   ├── icons/
+│   └── logo/
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+└── README.md
+
+
+Diretrizes do desenvolvimento
+
+Reaproveitar ao máximo a estrutura visual do portfólio original da Dany
+Evitar recriar o layout do zero
+Manter código limpo, organizado e fácil de manter
+Garantir responsividade
+Preparar a seção de portfólio para expansão futura
+Priorizar clareza, hierarquia visual e consistência institucional
+
+Portfólio
+A seção de portfólio foi pensada como uma biblioteca visual de projetos, com estrutura preparada para crescimento.
+Categorias sugeridas
+
+Dashboards
+Automação
+Análise de Dados
+Controle Operacional
+Soluções Personalizadas
+
+Exemplos de projetos
+
+Dashboard financeiro gerencial
+Automação de processos administrativos
+Controle de estoque e pagamentos
+Solução analítica para tomada de decisão
+Projeto confidencial
+
+Publicação
+Este projeto será publicado via GitHub Pages.
+Próximos passos
+
+Refinar o layout com base no portfólio original
+Implementar a seção de especialistas com cards
+Estruturar a biblioteca de projetos
+Ajustar responsividade
+Inserir links institucionais e contatos
+Revisar conteúdo final antes da publicação
+
+Status do projeto
+🚧 Em desenvolvimento
+
+Dash Business
+Dados, estratégia e eficiência para decisões melhores.

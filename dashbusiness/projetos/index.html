@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca de Projetos — Dash Business</title>
+  <meta name="description" content="Biblioteca completa de projetos da Dash Business: dashboards, automação, análise de dados e soluções personalizadas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <img src="../assets/logo/logo.jfif" class="navbar-bg-img" alt="">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"></a>
+        <ul class="nav-links">
+          <li><a href="../index.html#sobre"         class="nav-link">Sobre</a></li>
+          <li><a href="../index.html#especialistas" class="nav-link">Especialistas</a></li>
+          <li><a href="../index.html#portfolio"     class="nav-link active">Portfólio</a></li>
+          <li><a href="../index.html#contato"       class="nav-link">Contato</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="nav-hamburger" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="../index.html#sobre">Sobre</a>
+      <a href="../index.html#especialistas">Especialistas</a>
+      <a href="../index.html#portfolio" class="active">Portfólio</a>
+      <a href="../index.html#contato">Contato</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- CABEÇALHO DA BIBLIOTECA -->
+    <section class="biblioteca-hero">
+      <div class="container">
+        <span class="section-label">Todos os Projetos</span>
+        <h1>Biblioteca de Projetos</h1>
+        <p>Soluções desenvolvidas para diferentes segmentos — dados, automação e inteligência operacional.</p>
+        <a href="../index.html" class="btn-ghost">← Voltar para início</a>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section class="biblioteca-content">
+      <div class="container">
+
+        <div class="filter-bar fade-in">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="automacao">Automação</button>
+          <button class="filter-btn" data-filter="controle-operacional">Controle Operacional</button>
+        </div>
+
+        <div id="library-grid" class="projects-grid"></div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Dash Business — Dados, estratégia e eficiência para decisões melhores.</p>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Voltar ao topo">↑</button>
+
+  <script src="../js/projects.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderProjectCards('library-grid', { contactUrl: '../index.html#contato', imgBase: '../' });
+
+      document.querySelectorAll('.filter-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.filter-btn').forEach(function (b) {
+            b.classList.remove('active');
+          });
+          btn.classList.add('active');
+          filterProjectCards('library-grid', btn.dataset.filter);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
